@@ -11,6 +11,7 @@ import {
   Show,
   Hide,
 } from "@chakra-ui/react";
+import { useRef } from "react";
 
 /**
  * Home Page
@@ -18,6 +19,14 @@ import {
  * @returns Home Page component
  */
 export default function Home() {
+  const componentRef = useRef<HTMLInputElement>(null);
+
+  const scrollToSectionAfterExpanded = () => {
+    componentRef.current?.scrollIntoView({
+      behavior: "smooth",
+      block: "start",
+    });
+  };
   return (
     <>
       <HeadComponent title="Home" />
@@ -39,6 +48,8 @@ export default function Home() {
             height={{ base: 400, md: 600 }}
             zIndex={1}
             width={{ base: 250, md: 450 }}
+            onClick={scrollToSectionAfterExpanded}
+            _hover={{cursor: 'pointer'}}
           />
           <Show above="lg">
             <Text
@@ -63,7 +74,7 @@ export default function Home() {
               fontSize={{ base: "44px", md: "68px" }}
               textColor={"gray"}
               zIndex={0}
-              letterSpacing={{base: 0, sm: 16, md: 30 }}
+              letterSpacing={{ base: 0, sm: 16, md: 30 }}
             >
               The
               <br />
@@ -96,6 +107,10 @@ export default function Home() {
               variant="subtle"
               colorScheme="gray"
               fontStyle={suranna.style.fontFamily}
+              pos="relative"
+              top={0}
+              transition="top 0.25s ease"
+              _hover={{ top: -2 }}
             >
               Fantasy
             </Tag>
@@ -106,8 +121,12 @@ export default function Home() {
               variant="subtle"
               colorScheme="gray"
               fontStyle={suranna.style.fontFamily}
+              pos="relative"
+              top={0}
+              transition="top 0.25s ease"
+              _hover={{ top: -2 }}
             >
-              Urban Fantasy
+              Sci-Fi
             </Tag>
           </HStack>
         </Flex>
@@ -121,6 +140,8 @@ export default function Home() {
       {/** Book Information / Sumamry */}
       <Flex
         as={"section"}
+        id={'book-summary'}
+        ref={componentRef}
         mt={8}
         py={8}
         width={"100%"}
