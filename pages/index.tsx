@@ -29,9 +29,8 @@ export default function Home() {
   };
   return (
     <>
-      <HeadComponent title="Home" />
+      <HeadComponent title="Home | Frederick Asamoah Jr" />
       <Flex
-        as={"section"}
         bgColor={"#EBE8E2"}
         direction={"column"}
         width={"100%"}
@@ -40,7 +39,7 @@ export default function Home() {
         <Header />
 
         {/** Book Cover Section */}
-        <Flex py={4} direction={"column"} align={"center"} width={"100vw"}>
+        <Flex py={4} direction={"column"} align={"center"} width={"100vw"} as={'section'}>
           <Image
             pos={"relative"}
             src={"/Book Cover Template.png"}
@@ -88,7 +87,7 @@ export default function Home() {
         </Flex>
 
         {/** Book Title Section */}
-        <Flex direction={"column"} py={4} w={"80%"} mx={"auto"}>
+        <Flex direction={"column"} py={4} w={"80%"} mx={"auto"} as={'section'}>
           <Text fontFamily={suranna.style.fontFamily} fontSize={"4xl"}>
             The Precarious Pivot
           </Text>
@@ -132,7 +131,7 @@ export default function Home() {
         </Flex>
 
         {/** Circle navigation */}
-        <Flex py={4} width={"100%"} justify={"center"} gap={4}>
+        <Flex py={4} width={"100%"} justify={"center"} gap={4} as={'section'}>
           <Circle size={"10px"} bg={"black"} />
         </Flex>
       </Flex>
@@ -169,10 +168,10 @@ export default function Home() {
         <Flex
           align={{ base: "center", md: "normal" }}
           textAlign={"start"}
-          maxW={{ base: "", md: "440px" }}
+          maxW={{ base: "80%", md: "440px" }}
           direction={"column"}
-          px={2}
-        >
+          mx={{base: 'auto', md: 4}}
+          >
           <Text
             fontSize={{ base: 36, sm: 48 }}
             fontFamily={suranna.style.fontFamily}
