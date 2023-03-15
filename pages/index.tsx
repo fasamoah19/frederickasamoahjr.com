@@ -29,9 +29,9 @@ export default function Home() {
   };
   return (
     <>
-      <HeadComponent title="Home | Frederick Asamoah Jr" />
+      <HeadComponent title="Home | Fred Asamoah Jr" />
       <Flex
-        bgColor={"#EBE8E2"}
+        bgColor={"#E3E1DE"}
         direction={"column"}
         width={"100%"}
       >
@@ -51,7 +51,7 @@ export default function Home() {
             _hover={{cursor: 'pointer'}}
           />
           <Show above="lg">
-            <Text
+            {/* <Text
               pos={"absolute"}
               top={350}
               textAlign={"center"}
@@ -61,8 +61,8 @@ export default function Home() {
               zIndex={0}
               letterSpacing={"30px"}
             >
-              The Precarious Pivot
-            </Text>
+              Trinity Bound by Fate Series
+            </Text> */}
           </Show>
           <Hide above="lg">
             <Text
@@ -89,14 +89,14 @@ export default function Home() {
         {/** Book Title Section */}
         <Flex direction={"column"} py={4} w={"80%"} mx={"auto"} as={'section'}>
           <Text fontFamily={suranna.style.fontFamily} fontSize={"4xl"}>
-            The Precarious Pivot
+            The Pivot
           </Text>
           <Text
             fontFamily={suranna.style.fontFamily}
             fontSize={"xl"}
             fontStyle={"italic"}
           >
-            Book One in the Bound Series
+            Book One in the Trinity Bound by Fate Series
           </Text>
           <HStack pt={4} spacing={4}>
             <Tag
@@ -142,7 +142,7 @@ export default function Home() {
         id={'book-summary'}
         ref={componentRef}
         mt={8}
-        py={8}
+        py={32}
         width={"100%"}
         justify={"center"}
         align={"start"}
@@ -159,8 +159,8 @@ export default function Home() {
             <Image
               src={"/Book Cover Template.png"}
               alt={"Book cover placeholder"}
-              height={848}
-              width={590}
+              height={500}
+              width={380}
             />
           </Flex>
         </Show>
@@ -173,13 +173,13 @@ export default function Home() {
           mx={{base: 'auto', md: 4}}
           >
           <Text
-            fontSize={{ base: 36, sm: 48 }}
+            fontSize={{ base: 28, sm: 36 }}
             fontFamily={suranna.style.fontFamily}
           >
             Summary
           </Text>
 
-          <Text mt={4} fontFamily={suranna.style.fontFamily} fontSize={20}>
+          <Text mt={4} fontFamily={suranna.style.fontFamily} fontSize={18}>
             What does it mean to be blessed with a power that when drawn upon
             harms everyone near them?
             <br />
@@ -191,7 +191,7 @@ export default function Home() {
             These are all questions recent college graduate Daniel Ansah finds
             himself answering after he awakens a mysterious power within him,
             injuring numerous people while trying to do what he was trained to
-            do –– be a mental health clinician. 
+            do –– be a mental health clinician.
             <br />
             <br />
             Turned on, sold out, and hunted by the same people he swore to help

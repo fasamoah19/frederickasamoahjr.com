@@ -34,7 +34,7 @@ export default function TextWithUnderlineHoverComponent({
         _after: { transform: "scaleX(1)", transformOrigin: "bottom left" },
       }}
       fontFamily={suranna.style.fontFamily}
-      fontSize={fontSize ?? 24}
+      fontSize={fontSize ?? 18}
     >
       {text}
     </Text>
