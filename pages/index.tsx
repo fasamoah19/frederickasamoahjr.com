@@ -251,6 +251,7 @@ export default function Home() {
               mx={"auto"}
               initial={{ opacity: 0 }}
               whileInView={{ opacity: 1, transition: { duration: 1.25 } }}
+              viewport={{ once: true }}
             >
               <Text textStyle={"excerpt"}>
                 &ldquo;He looked down and saw his arms and legs surrounded by a
