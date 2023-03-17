@@ -1,18 +1,25 @@
 import Header from "@/components/Header";
-import { suranna } from "@/fonts/suranna";
+import { merriweather } from "@/fonts/merriweather";
 import {
   Box,
+  Button,
+  Divider,
   Flex,
   FormControl,
   FormLabel,
-  Image,
   Input,
-  Spacer,
+  Text,
   Textarea,
   VStack,
 } from "@chakra-ui/react";
+import { motion } from "framer-motion";
 import HeadComponent from "../components/HeadComponent";
 
+/**
+ * Contact Page
+ * 
+ * @returns ContactPage Component
+ */
 export default function ContactPage() {
   return (
     <>
@@ -20,74 +27,86 @@ export default function ContactPage() {
 
       <Box as={"main"}>
         <Flex
-          bgColor={"rgba(98, 72, 42, 0.2)"}
-          direction={"column"}
           width={"100%"}
+          direction={"column"}
           height={{ base: "100%", md: "100vh" }}
         >
           <Header />
-          <Flex
-            w={"100%"}
-            direction={"row"}
-            justify={"center"}
-            py={16}
-          >
-            <Image
-              src="/fred-contact-page-image.jpg"
-              width={300}
-              height={400}
-              borderRadius={4}
-              boxShadow={"md"}
-            />
-            <Spacer maxW={48} h={2} />
+          <Divider />
+          <Flex w={"100%"} direction={"column"} justify={"center"} py={32}>
+            <Text textStyle={"h2"} mb={8}>
+              Contact Me
+            </Text>
+            {/** Contact Form */}
             <form id="submit-contact" onSubmit={() => {}}>
-              <VStack spacing={6} width={'100%'}>
-                <FormControl>
-                <FormLabel fontFamily={suranna.style.fontFamily} fontSize={18}>
-                  Name
-                </FormLabel>
-                <Input
-                  type={"text"}
-                  variant={"filled"}
-                  fontSize={16}
-                  fontFamily={suranna.style.fontFamily}
-                />
-              </FormControl>
+              <VStack spacing={6} width={"40%"} mx={"auto"}>
+                {/** Name */}
+                <FormControl isRequired>
+                  <FormLabel
+                    fontSize={14}
+                  >
+                    Name
+                  </FormLabel>
+                  <Input
+                    type={"text"}
+                    variant={"outline"}
+                    size={"md"}
+                    fontSize={16}
+                  />
+                </FormControl>
 
-              <FormControl>
-                <FormLabel fontFamily={suranna.style.fontFamily} fontSize={18}>
-                  Email
-                </FormLabel>
-                <Input
-                  type={"text"}
-                  variant={"filled"}
-                  fontSize={16}
-                  fontFamily={suranna.style.fontFamily}
-                />
-              </FormControl>
+                {/** Email */}
+                <FormControl isRequired>
+                  <FormLabel
+                    fontSize={14}
+                  >
+                    Email
+                  </FormLabel>
+                  <Input
+                    type={"text"}
+                    variant={"outline"}
+                    fontSize={16}
+                  />
+                </FormControl>
 
-              <FormControl>
-                <FormLabel fontFamily={suranna.style.fontFamily} fontSize={18}>
-                  Subject
-                </FormLabel>
-                <Input
-                  type={"text"}
-                  variant={"filled"}
-                  fontSize={16}
-                  fontFamily={suranna.style.fontFamily}
-                />
-              </FormControl>
+                {/** Subject */}
+                <FormControl isRequired>
+                  <FormLabel
+                    fontSize={14}
+                  >
+                    Subject
+                  </FormLabel>
+                  <Input
+                    type={"text"}
+                    variant={"outline"}
+                    fontSize={16}
+                  />
+                </FormControl>
 
-              <FormControl>
-                <FormLabel fontFamily={suranna.style.fontFamily} fontSize={18}>
-                  Message
-                </FormLabel>
-                <Textarea
-                  variant={"filled"}
-                  fontSize={16}
-                  fontFamily={suranna.style.fontFamily}
-                />
-              </FormControl>
+                {/** Message */}
+                <FormControl isRequired>
+                  <FormLabel
+                    fontSize={14}
+                  >
+                    Message
+                  </FormLabel>
+                  <Textarea
+                    variant={"outline"}
+                    fontSize={16}
+                  />
+                </FormControl>
+                <Button
+                  as={motion.button}
+                  whileHover={{ scale: 0.9, transition: { duration: 0.1 } }}
+                  whileTap={{ scale: 0.8, borderRadius: "5%" }}
+                  fontWeight={400}
+                  color={"white"}
+                  size={"lg"}
+                  bgColor={"black"}
+                  _hover={{ bgColor: "gray.700" }}
+                >
+                  Submit
+                </Button>
               </VStack>
             </form>
           </Flex>

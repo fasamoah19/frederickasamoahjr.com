@@ -1,16 +1,16 @@
-import { suranna } from "@/fonts/suranna";
+import { merriweather } from "@/fonts/merriweather";
 import { Text } from "@chakra-ui/react";
 
 /** Props necessary for this component */
 type Props = {
-  fontSize?: number;
   text: string;
+  underlineColor?: string
 };
 
 /** A custom Chakra UI Text component that adds the hover and underline effect */
 export default function TextWithUnderlineHoverComponent({
-  fontSize,
   text,
+  underlineColor
 }: Props) {
   return (
     <Text
@@ -24,7 +24,7 @@ export default function TextWithUnderlineHoverComponent({
         height: "2px",
         bottom: 0,
         left: 0,
-        backgroundColor: "black",
+        backgroundColor: `${underlineColor}`,
         transformOrigin: "bottom right",
         transition: "transform 0.25s ease-out",
       }}
@@ -33,8 +33,7 @@ export default function TextWithUnderlineHoverComponent({
         transformOrigin: "bottom left",
         _after: { transform: "scaleX(1)", transformOrigin: "bottom left" },
       }}
-      fontFamily={suranna.style.fontFamily}
-      fontSize={fontSize ?? 18}
+      textStyle={'headerLinks'}
     >
       {text}
     </Text>

@@ -1,6 +1,5 @@
 import HeadComponent from "@/components/HeadComponent";
 import Header from "@/components/Header";
-import { suranna } from "@/fonts/suranna";
 import {
   Flex,
   HStack,
@@ -8,10 +7,14 @@ import {
   Text,
   Image,
   Circle,
-  Show,
-  Hide,
+  Box,
+  VStack,
+  Button,
+  ButtonGroup,
 } from "@chakra-ui/react";
 import { useRef } from "react";
+import { motion } from "framer-motion";
+import { merriweather } from "@/fonts/merriweather";
 
 /**
  * Home Page
@@ -19,194 +22,261 @@ import { useRef } from "react";
  * @returns Home Page component
  */
 export default function Home() {
-  const componentRef = useRef<HTMLInputElement>(null);
+  const synopsisRef = useRef<HTMLInputElement>(null);
+  const excerptRef = useRef<HTMLInputElement>(null);
 
-  const scrollToSectionAfterExpanded = () => {
-    componentRef.current?.scrollIntoView({
-      behavior: "smooth",
-      block: "start",
-    });
+  const scrollToSectionAfterExpanded = (option: "EXCERPT" | "SYNOPSIS") => {
+    if (option == "SYNOPSIS") {
+      synopsisRef.current?.scrollIntoView({
+        behavior: "smooth",
+        block: "start",
+      });
+    } else {
+      excerptRef.current?.scrollIntoView({
+        behavior: "smooth",
+        block: "start",
+      });
+    }
   };
+
   return (
     <>
       <HeadComponent title="Home | Fred Asamoah Jr" />
-      <Flex
-        bgColor={"#E3E1DE"}
-        direction={"column"}
-        width={"100%"}
-      >
-        {/** Header */}
-        <Header />
-
-        {/** Book Cover Section */}
-        <Flex py={4} direction={"column"} align={"center"} width={"100vw"} as={'section'}>
-          <Image
-            pos={"relative"}
-            src={"/Book Cover Template.png"}
-            alt={"Book cover placeholder"}
-            height={{ base: 400, md: 600 }}
-            zIndex={1}
-            width={{ base: 250, md: 450 }}
-            onClick={scrollToSectionAfterExpanded}
-            _hover={{cursor: 'pointer'}}
-          />
-          <Show above="lg">
-            {/* <Text
-              pos={"absolute"}
-              top={350}
-              textAlign={"center"}
-              fontFamily={suranna.style.fontFamily}
-              fontSize={"68px"}
-              textColor={"gray"}
-              zIndex={0}
-              letterSpacing={"30px"}
-            >
-              Trinity Bound by Fate Series
-            </Text> */}
-          </Show>
-          <Hide above="lg">
-            <Text
-              pos={"absolute"}
-              top={{ base: 40, md: 50 }}
-              textAlign={"center"}
-              fontFamily={suranna.style.fontFamily}
-              fontSize={{ base: "44px", md: "68px" }}
-              textColor={"gray"}
-              zIndex={0}
-              letterSpacing={{ base: 0, sm: 16, md: 30 }}
-            >
-              The
-              <br />
-              <br />
-              Precarious
-              <br />
-              <br />
-              Pivot
-            </Text>
-          </Hide>
-        </Flex>
-
-        {/** Book Title Section */}
-        <Flex direction={"column"} py={4} w={"80%"} mx={"auto"} as={'section'}>
-          <Text fontFamily={suranna.style.fontFamily} fontSize={"4xl"}>
-            The Pivot
-          </Text>
-          <Text
-            fontFamily={suranna.style.fontFamily}
-            fontSize={"xl"}
-            fontStyle={"italic"}
+      <Box>
+        <Flex
+          bgImage={"/images/image-manipulation-3442184.jpg"}
+          layerStyle="flexImageContainer900H"
+        >
+          <Flex
+            pb={8}
+            direction="column"
+            align="center"
+            pos="relative"
+            w="100%"
+            h="inherit"
+            bgColor="blackAlpha.300"
+            px={{ base: 4, md: 0 }}
+            minHeight={"inherit"}
           >
-            Book One in the Trinity Bound by Fate Series
-          </Text>
-          <HStack pt={4} spacing={4}>
-            <Tag
-              boxShadow={"md"}
-              borderRadius={12}
-              size={"lg"}
-              variant="subtle"
-              colorScheme="gray"
-              fontStyle={suranna.style.fontFamily}
-              pos="relative"
-              top={0}
-              transition="top 0.25s ease"
-              _hover={{ top: -2 }}
+            <Header />
+
+            {/** Book Cover Section */}
+            <Flex
+              py={32}
+              align={"top"}
+              width={"100%"}
+              as={motion.section}
+              justify={"center"}
+              initial={{ opacity: 0, y: 100 }}
+              animate={{
+                opacity: 1,
+                y: 0,
+                transition: { duration: 1.25, delay: 0.25, type: "tween" },
+              }}
             >
-              Fantasy
-            </Tag>
-            <Tag
-              boxShadow={"md"}
-              borderRadius={12}
-              size={"lg"}
-              variant="subtle"
-              colorScheme="gray"
-              fontStyle={suranna.style.fontFamily}
-              pos="relative"
-              top={0}
-              transition="top 0.25s ease"
-              _hover={{ top: -2 }}
-            >
-              Sci-Fi
-            </Tag>
-          </HStack>
+              <Image
+                pos={"relative"}
+                src={"/Book Cover Template.png"}
+                alt={"Book cover placeholder"}
+                height={{ base: 400, md: 500 }}
+                width={{ base: 250, md: 340 }}
+                onClick={() => scrollToSectionAfterExpanded("SYNOPSIS")}
+                _hover={{ cursor: "pointer" }}
+              />
+
+              <Box w={20} />
+              <Flex direction={"column"}>
+                <Text textStyle={"h1"}>The Pivot</Text>
+                {/** Book Title Section */}
+                <VStack
+                  direction={"column"}
+                  py={4}
+                  align={"start"}
+                  justify={"start"}
+                  spacing={12}
+                >
+                  <Text textStyle={"h2Caption"} maxW={"400px"}>
+                    Book One in the Trinity Bound by Fate Series
+                  </Text>
+                  <HStack spacing={4}>
+                    <Tag
+                      boxShadow={"md"}
+                      size={"md"}
+                      variant="subtle"
+                      colorScheme="gray"
+                      fontStyle={merriweather.style.fontFamily}
+                    >
+                      Sci-Fi / Fantasy
+                    </Tag>
+                    <Tag
+                      boxShadow={"md"}
+                      size={"md"}
+                      variant="subtle"
+                      colorScheme="gray"
+                      fontStyle={merriweather.style.fontFamily}
+                    >
+                      New Adult (18-30)
+                    </Tag>
+                  </HStack>
+
+                  {/** Sign Up to Beta Read */}
+                  <ButtonGroup spacing={4}>
+                    <Button
+                      as={motion.button}
+                      whileHover={{ scale: 0.9, transition: { duration: 0.1 } }}
+                      whileTap={{ scale: 0.8, borderRadius: "5%" }}
+                      fontWeight={merriweather.style.fontWeight}
+                      color={"white"}
+                      size={"md"}
+                      bgColor={"black"}
+                      _hover={{ bgColor: "gray.700" }}
+                    >
+                      SIGN UP TO BETA READ
+                    </Button>
+                    <Button
+                      as={motion.button}
+                      whileHover={{ scale: 0.9, transition: { duration: 0.1 } }}
+                      whileTap={{ scale: 0.8, borderRadius: "5%" }}
+                      fontWeight={merriweather.style.fontWeight}
+                      color={"white"}
+                      size={"md"}
+                      bgColor={"black"}
+                      _hover={{ bgColor: "gray.700" }}
+                      onClick={() => scrollToSectionAfterExpanded("EXCERPT")}
+                    >
+                      READ EXCERPT
+                    </Button>
+                  </ButtonGroup>
+                </VStack>
+              </Flex>
+            </Flex>
+            {/** Circle navigation */}
+            <Flex width={"100%"} justify={"center"} as={"section"}>
+              <Circle size={"10px"} bg={"white"} />
+            </Flex>
+          </Flex>
         </Flex>
 
-        {/** Circle navigation */}
-        <Flex py={4} width={"100%"} justify={"center"} gap={4} as={'section'}>
-          <Circle size={"10px"} bg={"black"} />
-        </Flex>
-      </Flex>
-
-      {/** Book Information / Sumamry */}
-      <Flex
-        as={"section"}
-        id={'book-summary'}
-        ref={componentRef}
-        mt={8}
-        py={32}
-        width={"100%"}
-        justify={"center"}
-        align={"start"}
-        gap={{ base: 4, md: 8, xl: 16 }}
-        direction={{ base: "column", md: "row" }}
-      >
-        <Show above="sm">
+        {/** Book Information / Sumamry */}
+        <Flex
+          as={motion.section}
+          id={"book-summary"}
+          bgColor={"white"}
+          ref={synopsisRef}
+          py={32}
+          width={"100%"}
+          justify={"center"}
+          align={"start"}
+          direction={"column"}
+        >
           <Flex
             justify={"center"}
-            align={"center"}
+            w={{ base: "90%", sm: "70%", md: "60%" }}
             direction={"column"}
-            mx={{ base: "auto", md: 0 }}
+            mx={"auto"}
+            as={motion.section}
+            initial={{ opacity: 0, x: -300 }}
+            whileInView={{ opacity: 1, x: 0, transition: { duration: 1.25 } }}
+            viewport={{ once: true }}
           >
-            <Image
-              src={"/Book Cover Template.png"}
-              alt={"Book cover placeholder"}
-              height={500}
-              width={380}
-            />
+            <Text textStyle={"h2"} mb={4}>
+              Synopsis
+            </Text>
+
+            <Text
+              mt={4}
+              fontFamily={merriweather.style.fontFamily}
+              fontSize={18}
+              textAlign={"justify"}
+            >
+              Daniel Ansah, a recent college graduate, is striving towards his
+              dream to become a mental health clinician. But that dream is
+              shattered as he awakens a dark energy within, causing him to leave
+              trails of blood every time he activates it.
+              <br />
+              <br />
+              Labeled as a demon and a threat to the world, his family and
+              friends shun him, while the U.S. government attempts to weaponize
+              him for global domination.
+              <br />
+              <br />
+              With his powers still a mystery, Daniel teleports himself to a
+              foreign planet where the locals demand that he confront his trauma
+              before he's allowed to stay. With nowhere to go, Daniel accepts
+              their terms with crossed fingers, plotting to keep his past hidden
+              as long as possible.
+              <br />
+              <br />
+              His decision places the entire village at risk of death not only
+              because of his uncontrolled powers, but that his presence
+              re-awakens an old foe of their village's leader. This foe comes
+              with a warning. Hand over Daniel or prepare for war.
+              <br />
+              <br />
+              Will Daniel be able to pivot to realize his destiny? Or will he
+              leave a blood trail on this planet as well?
+            </Text>
           </Flex>
-        </Show>
+        </Flex>
 
+        {/** Exercept Section */}
         <Flex
-          align={{ base: "center", md: "normal" }}
-          textAlign={"start"}
-          maxW={{ base: "80%", md: "440px" }}
-          direction={"column"}
-          mx={{base: 'auto', md: 4}}
+          id="excerpt"
+          layerStyle="flexImageContainerFitContent"
+          as={"section"}
+          bgImage={"/images/washington-1216630.jpg"}
+        >
+          <Flex
+            direction="column"
+            align="center"
+            pos="relative"
+            w="100%"
+            h="inherit"
+            bgColor="blackAlpha.600"
+            py={32}
+            ref={excerptRef}
+            px={{ base: 4, md: 0 }}
           >
-          <Text
-            fontSize={{ base: 28, sm: 36 }}
-            fontFamily={suranna.style.fontFamily}
-          >
-            Summary
-          </Text>
+            <Text textStyle={"h2"} mb={8}>
+              Excerpt
+            </Text>
+            <Flex
+              as={motion.div}
+              width={"100%"}
+              justify={"center"}
+              align={"center"}
+              direction={"column"}
+              gap={8}
+              w={{ base: "90%", sm: "70%", md: "60%" }}
+              mx={"auto"}
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1, transition: { duration: 1.25 } }}
+            >
+              <Text textStyle={"excerpt"}>
+                &ldquo;He looked down and saw his arms and legs surrounded by a
+                jet-black aura. The aura expanded exponentially until it
+                retracted to the center of his abdomen and sent a shockwave all
+                around the Union Station area of D.C. The force of the shockwave
+                sent cars flying into buildings and flung people into poles only
+                for them to land on clumps of shimmering concrete.&rdquo;
+              </Text>
+            </Flex>
+          </Flex>
+        </Flex>
 
-          <Text mt={4} fontFamily={suranna.style.fontFamily} fontSize={18}>
-            What does it mean to be blessed with a power that when drawn upon
-            harms everyone near them?
-            <br />
-            <br />
-            How does one embrace a pivot towards their destiny when everything
-            they know and love has to be left behind?
-            <br />
-            <br />
-            These are all questions recent college graduate Daniel Ansah finds
-            himself answering after he awakens a mysterious power within him,
-            injuring numerous people while trying to do what he was trained to
-            do –– be a mental health clinician.
-            <br />
-            <br />
-            Turned on, sold out, and hunted by the same people he swore to help
-            heal, Daniel is given another chance at life when his powers save
-            him and take him to a distant planet named Rathim. Kamuria –– a
-            small village with a large heart –– welcomes Daniel with open arms
-            and contains everything Daniel needs to heal and realize his true
-            destiny.
-            <br />
-            <br />
-            However, with the pain and trauma Daniel has suffered on Earth, he
-            may be beyond saving.
+        {/** Newletter Sign Up*/}
+        <Flex
+          py={32}
+          width={"100%"}
+          justify={"center"}
+          align={"center"}
+          direction={"column"}
+        >
+          <Text fontFamily={merriweather.style.fontFamily} fontSize={"4xl"}>
+            Sign Up For My Newsletter
           </Text>
         </Flex>
-      </Flex>
+      </Box>
     </>
   );
 }
