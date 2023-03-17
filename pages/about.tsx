@@ -1,85 +1,72 @@
-import { Box, Flex, Hide, Image, Show, Text } from "@chakra-ui/react";
+import { Box, Flex, Text } from "@chakra-ui/react";
 import HeadComponent from "../components/HeadComponent";
 import Header from "../components/Header";
-import { suranna } from "../fonts/suranna";
 
+/**
+ * The About Page
+ * 
+ * @returns AboutPage component
+ */
 export default function AboutPage() {
   return (
     <>
       <HeadComponent title="About | Frederick Asamoah Jr" />
       <Box as="main">
         <Flex
-          bgColor={"rgba(156, 133, 131, 0.3)"}
-          direction={"column"}
+          as={"section"}
           width={"100%"}
-          height={{base: '100%', md: "100vh"}}
+          justify={"center"}
+          direction={"column"}
+          bgImage={"/fred-contact-page-image.jpg"}
+          align={"center"}
+          bgPos="center 40%"
+          bgRepeat="no-repeat"
+          bgSize="cover"
+          bgAttachment="fixed"
+          color={"white"}
+          minHeight={{ base: "fit-content", md: "900px" }}
         >
-          <Header />
           <Flex
-            as={"section"}
-            mt={{base: 0, md: 8}}
-            py={8}
-            width={"100%"}
-            justify={"center"}
-            align={"center"}
-            gap={{ base: 4, md: 8 }}
-            direction={{ base: "column", md: "row" }}
+            direction="column"
+            align="center"
+            pos="relative"
+            w="100%"
+            minHeight={"inherit"}
+            bgColor="blackAlpha.700"
           >
-            <Hide above="md">
-              <Flex mx={{ base: "auto", md: 4 }} maxWidth={"90%"}>
-                <Text
-                  textAlign={"center"}
-                  fontSize={{ base: 36, sm: 48 }}
-                  fontFamily={suranna.style.fontFamily}
-                >
-                  About Frederick
-                </Text>
-              </Flex>
-            </Hide>
+            {/** Header */}
+            <Header textColor="white" />
+
+            {/** About Frederick Section */}
             <Flex
-              justify={"center"}
+              py={32}
               align={"center"}
+              width={"100%"}
+              as={"section"}
+              justify={"center"}
               direction={"column"}
-              mx={{ base: "auto", md: 4 }}
+              w={{ base: "90%", sm: "70%", md: "70%", lg: "60%" }}
+              mx={"auto"}
             >
-              <Image
-                src={"/fred-about-page-image.JPG"}
-                alt={"About fred image"}
-                maxHeight={{ base: 400, md: 480 }}
-                maxW={{ base: 250, md: 400 }}
-                borderRadius={4}
-              />
-            </Flex>
+              {/** Section Title */}
+              <Text textStyle={"h2"} mb={8}>
+                About Frederick
+              </Text>
 
-            <Flex
-              align={{ base: "center", md: "normal" }}
-              textAlign={"start"}
-              maxW={{ base: "90%", md: "560px" }}
-              direction={"column"}
-              mx={{ base: "auto", md: 4 }}
-            >
-              <Show above="md">
-                <Text
-                  fontSize={{ base: 36, sm: 48 }}
-                  fontFamily={suranna.style.fontFamily}
-                >
-                  About Frederick
-                </Text>
-              </Show>
-
-              <Text mt={4} fontFamily={suranna.style.fontFamily} fontSize={20}>
+              {/** About me text */}
+              <Text textStyle={"paragraph"}>
                 Ever since Frederick Asamoah Jr was a child, he loved to create
-                stories. Whether those stories stemmed from him playing with his
+                stories. Whether those stories stemmed from playing with his
                 toys, writing poetry, or in video games he played where he had
                 no clue what was going on--causing him to make up a story of his
-                own. That urge to create led him to write the fantasy novel
-                Bound: The Precarious Pivot.
+                own. That urge to create led him to write the Sci-Fi / Fantasy
+                novel A Trinity Bound by Fate: The Pivot.
                 <br />
                 <br />
-                That desire to create also guided him to become a software
+                Frederick&apos;s desire to create guided him to become a software
                 developer where he creates applications and programs for a
-                living (for now). It also steered him pick up the bass guitar,
-                to produce sounds and melodies that came to him.
+                living (for now). It also led him pick up the bass guitar, to
+                produce sounds and melodies that came to him.
                 <br />
                 <br />
                 If he&apos;s not doing anything mentioned above (he&apos;s too
