@@ -1,4 +1,5 @@
-import { Box } from "@chakra-ui/react";
+import { Box, useDisclosure } from "@chakra-ui/react";
+import BetaReadSignUpDrawer from "./BetaReadSignUpDrawer";
 import Footer from "./Footer";
 import Header from "./Header";
 
@@ -13,6 +14,7 @@ type LayoutProps = {
 };
 
 export default function Layout({ children }: LayoutProps) {
+
   return (
     <>
       <Box>{children}</Box>
