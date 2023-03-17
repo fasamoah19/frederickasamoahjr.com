@@ -6,6 +6,20 @@ const theme = extendTheme({
     body: `${merriweather.style.fontFamily}, serif`,
     heading: `${merriweather.style.fontFamily}, serif`,
   },
+  colors: {
+    black: {
+      50: '#f2f2f2',
+      100: '#d9d9d9',
+      200: '#bfbfbf',
+      300: '#a6a6a6',
+      400: '#8c8c8c',
+      500: '#737373',
+      600: '#595959',
+      700: '#404040',
+      800: '#262626',
+      900: '#000000',
+    }
+  },
   layerStyles: {
     flexImageContainer900H: {
       direction: "column",
@@ -44,16 +58,16 @@ const theme = extendTheme({
     },
     h2: {
       textAlign: 'center',
-      fontSize: {base: 'xl', md: '4xl'}, // 40px
+      fontSize: { base: 'xl', md: '4xl' }, // 40px
       fontWeight: 'bold' // 700
     },
     h2Caption: {
       fontStyle: 'italic',
-      fontSize: {base: 'sm', md: 'lg'}, // 18px
+      fontSize: { base: 'sm', md: 'lg' }, // 18px
       fontWeight: 'semibold'
     },
     paragraph: {
-      fontSize: {base: 'md', md: 'lg'}, // 18px
+      fontSize: { base: 'md', md: 'lg' }, // 18px
       textAlign: 'justify'
     },
     // Used for the Header component
@@ -65,6 +79,9 @@ const theme = extendTheme({
       fontWeight: 'medium',
       lineHeight: 10,
       textAlign: 'justify'
+    },
+    headerLinks: {
+      fontSize: 'md'
     }
   },
 })

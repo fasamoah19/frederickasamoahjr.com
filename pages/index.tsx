@@ -11,10 +11,12 @@ import {
   VStack,
   Button,
   ButtonGroup,
+  useDisclosure,
 } from "@chakra-ui/react";
 import { useRef } from "react";
 import { motion } from "framer-motion";
 import { merriweather } from "@/fonts/merriweather";
+import BetaReadSignUpDrawer from "@/components/BetaReadSignUpDrawer";
 
 /**
  * Home Page
@@ -24,6 +26,8 @@ import { merriweather } from "@/fonts/merriweather";
 export default function Home() {
   const synopsisRef = useRef<HTMLInputElement>(null);
   const excerptRef = useRef<HTMLInputElement>(null);
+
+  const { isOpen, onOpen, onClose } = useDisclosure();
 
   const scrollToSectionAfterExpanded = (option: "EXCERPT" | "SYNOPSIS") => {
     if (option == "SYNOPSIS") {
@@ -41,6 +45,7 @@ export default function Home() {
 
   return (
     <>
+      <BetaReadSignUpDrawer isOpen={isOpen} onClose={onClose} />
       <HeadComponent title="Home | Fred Asamoah Jr" />
       <Box>
         <Flex
@@ -58,7 +63,7 @@ export default function Home() {
             px={{ base: 4, md: 0 }}
             minHeight={"inherit"}
           >
-            <Header />
+            <Header textColor="white" />
 
             {/** Book Cover Section */}
             <Flex
@@ -130,6 +135,7 @@ export default function Home() {
                       size={"md"}
                       bgColor={"black"}
                       _hover={{ bgColor: "gray.700" }}
+                      onClick={onOpen}
                     >
                       SIGN UP TO BETA READ
                     </Button>
@@ -202,15 +208,15 @@ export default function Home() {
               <br />
               With his powers still a mystery, Daniel teleports himself to a
               foreign planet where the locals demand that he confront his trauma
-              before he&apos;s allowed to stay. With nowhere to go, Daniel accepts
-              their terms with crossed fingers, plotting to keep his past hidden
-              as long as possible.
+              before he&apos;s allowed to stay. With nowhere to go, Daniel
+              accepts their terms with crossed fingers, plotting to keep his
+              past hidden as long as possible.
               <br />
               <br />
               His decision places the entire village at risk of death not only
               because of his uncontrolled powers, but that his presence
-              re-awakens an old foe of their village&apos;s leader. This foe comes
-              with a warning. Hand over Daniel or prepare for war.
+              re-awakens an old foe of their village&apos;s leader. This foe
+              comes with a warning. Hand over Daniel or prepare for war.
               <br />
               <br />
               Will Daniel be able to pivot to realize his destiny? Or will he
