@@ -202,14 +202,14 @@ export default function Home() {
               <br />
               With his powers still a mystery, Daniel teleports himself to a
               foreign planet where the locals demand that he confront his trauma
-              before he's allowed to stay. With nowhere to go, Daniel accepts
+              before he&apos;s allowed to stay. With nowhere to go, Daniel accepts
               their terms with crossed fingers, plotting to keep his past hidden
               as long as possible.
               <br />
               <br />
               His decision places the entire village at risk of death not only
               because of his uncontrolled powers, but that his presence
-              re-awakens an old foe of their village's leader. This foe comes
+              re-awakens an old foe of their village&apos;s leader. This foe comes
               with a warning. Hand over Daniel or prepare for war.
               <br />
               <br />

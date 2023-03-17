@@ -63,7 +63,7 @@ export default function AboutPage() {
                 novel A Trinity Bound by Fate: The Pivot.
                 <br />
                 <br />
-                Frederick's desire to create guided him to become a software
+                Frederick&apos;s desire to create guided him to become a software
                 developer where he creates applications and programs for a
                 living (for now). It also led him pick up the bass guitar, to
                 produce sounds and melodies that came to him.
