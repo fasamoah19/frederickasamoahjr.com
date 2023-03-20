@@ -44,7 +44,7 @@ export default function Footer() {
             fontSize={12}
             pr={12}
           >
-            © {year} Frederick Asamoah Jr, All rights reserved.
+            © {year} Fred Asamoah Jr, All rights reserved.
           </Text>
           {/** Social Media handles. Add links */}
           <HStack spacing={4} color={"white"}>
@@ -113,7 +113,7 @@ export default function Footer() {
             color={"white"}
             fontSize={12}
           >
-            © {year} Frederick Asamoah Jr, All rights reserved.
+            © {year} Fred Asamoah Jr, All rights reserved.
           </Text>
           {/** Social Media handles. Add links */}
 

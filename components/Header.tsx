@@ -38,7 +38,7 @@ export default function Header({ textColor = "black" }: HeaderProps) {
           mx="auto"
           color={textColor}
         >
-          <Text textStyle={"headerText"}>frederick.asamoah.jr</Text>
+          <Text textStyle={"headerText"}>fred.asamoah.jr</Text>
           <Spacer />
           <HStack spacing={8}>
             <Show above="md">

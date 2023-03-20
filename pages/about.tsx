@@ -10,7 +10,7 @@ import Header from "../components/Header";
 export default function AboutPage() {
   return (
     <>
-      <HeadComponent title="About | Frederick Asamoah Jr" />
+      <HeadComponent title="About | Fred Asamoah Jr" />
       <Box as="main" height={"100%"}>
         <Flex width={"100%"} direction={"column"}>
           <Header textColor="black" />
@@ -25,7 +25,7 @@ export default function AboutPage() {
             gap={12}
           >
             {/** Section Title */}
-            <Text textStyle={"h2"}>About Frederick</Text>
+            <Text textStyle={"h2"}>About Fred</Text>
 
             <Image
               mt={-8}
@@ -39,7 +39,7 @@ export default function AboutPage() {
 
             {/** About me text */}
             <Text textStyle={"paragraph"}>
-              Ever since Frederick Asamoah Jr was a child, he loved to create
+              Ever since Fred Asamoah Jr was a child, he loved to create
               stories. Whether those stories stemmed from playing with his toys,
               writing poetry, or in video games he played where he had no clue
               what was going on--causing him to make up a story of his own. That
@@ -47,7 +47,7 @@ export default function AboutPage() {
               Trinity Bound by Fate: The Pivot.
               <br />
               <br />
-              Frederick&apos;s desire to create guided him to become a software
+              Fred&apos;s desire to create guided him to become a software
               developer where he creates applications and programs for a living
               (for now). It also led him pick up the bass guitar, to produce
               sounds and melodies that came to him.

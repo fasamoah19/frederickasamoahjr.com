@@ -17,7 +17,7 @@ export default function ProloguePage() {
   return (
     <>
       <BetaReadSignUpDrawer isOpen={isOpen} onClose={onClose} />
-      <HeadComponent title="The Pivot - Prologue | Frederick Asamoah Jr" />
+      <HeadComponent title="The Pivot - Prologue | Fred Asamoah Jr" />
       <Box as="main" bgColor={"#FBF6E9"}>
         <Header textColor="black" />
         <Flex
