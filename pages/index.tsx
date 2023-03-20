@@ -14,13 +14,19 @@ import {
   useDisclosure,
   SimpleGrid,
   Icon,
+  Input,
+  FormControl,
+  FormLabel,
+  FormErrorMessage,
+  Divider,
 } from "@chakra-ui/react";
-import { useRef } from "react";
+import { useRef, useState } from "react";
 import { motion } from "framer-motion";
 import { merriweather } from "@/fonts/merriweather";
 import BetaReadSignUpDrawer from "@/components/modals/BetaReadSignUpDrawer";
 import { GiFireSilhouette } from "react-icons/gi";
 import { useRouter } from "next/router";
+import { EmailObject, joinMailingList, verifyEmail } from "@/lib/helper-functions";
 
 /**
  * Home Page
@@ -31,6 +37,13 @@ export default function Home() {
   const synopsisRef = useRef<HTMLInputElement>(null);
   const excerptRef = useRef<HTMLInputElement>(null);
   const router = useRouter();
+
+  const [email, setEmail] = useState<EmailObject>({
+    emailAddress: "",
+    isError: false,
+    errorMessage: "",
+    submittedSuccessfully: false,
+  });
 
   const { isOpen, onOpen, onClose } = useDisclosure();
 
@@ -101,7 +114,7 @@ export default function Home() {
                 direction={"column"}
                 w={{ base: "100%", md: "fit-content" }}
                 pt={{ base: 8, md: 0 }}
-                pl={{ md: 1}}
+                pl={{ md: 1 }}
                 align={{ base: "center", md: "start" }}
               >
                 <Text textStyle={"h1"}>The Pivot</Text>
@@ -116,7 +129,7 @@ export default function Home() {
                   <Text textStyle={"h2Caption"} maxW={"400px"}>
                     Book One in the Trinity Bound by Fate Series
                   </Text>
-                  <HStack spacing={4} justify={'center'}>
+                  <HStack spacing={4} justify={"center"}>
                     <Tag
                       boxShadow={"md"}
                       size={"md"}
@@ -152,7 +165,7 @@ export default function Home() {
                       whileTap={{ scale: 0.8, borderRadius: "5%" }}
                       fontWeight={merriweather.style.fontWeight}
                       color={"white"}
-                      size={{ base: "md", md: "md" }}
+                      size={{base: "md", md: "sm"}}
                       bgColor={"black"}
                       _hover={{ bgColor: "gray.700" }}
                       onClick={onOpen}
@@ -168,7 +181,7 @@ export default function Home() {
                       whileTap={{ scale: 0.8, borderRadius: "5%" }}
                       fontWeight={merriweather.style.fontWeight}
                       color={"white"}
-                      size={{ base: "md", md: "md" }}
+                      size={{base: "md", md: "sm"}}
                       bgColor={"black"}
                       _hover={{ bgColor: "gray.700" }}
                       onClick={() => router.push("/the-pivot/prologue")}
@@ -214,7 +227,7 @@ export default function Home() {
               mt={4}
               fontFamily={merriweather.style.fontFamily}
               fontSize={{ base: "md", md: "lg" }}
-              textAlign={{ base: 'center', md: 'justify' }}
+              textAlign={{ base: "center", md: "justify" }}
             >
               Daniel Ansah, a recent college graduate, is striving towards his
               dream to become a mental health clinician. That dream is shattered
@@ -359,19 +372,72 @@ export default function Home() {
             </HStack>
           </SimpleGrid>
         </Flex>
-
+        <Divider h={2} />
         {/** Newletter Sign Up*/}
-        {/* <Flex
-          py={32}
+        <Flex
+          py={{ base: 8, md: 16 }}
           width={"100%"}
           justify={"center"}
           align={"center"}
           direction={"column"}
+          bgColor={"blackAlpha.100"}
         >
-          <Text fontFamily={merriweather.style.fontFamily} fontSize={"4xl"}>
-            Sign Up For My Newsletter
-          </Text>
-        </Flex> */}
+          <Text textStyle={"h2"}>Sign Up For My Newsletter</Text>
+          <Flex align={"end"} direction={"row"}>
+            {email.submittedSuccessfully ? (
+              <Text
+                mt={4}
+                fontFamily={merriweather.style.fontFamily}
+                fontSize={'md'}
+              >Successfully joined the newsletter! Be on the look out for updates soon.</Text>
+            ) : (
+              <>
+                <FormControl isInvalid={email.isError}>
+                  <FormLabel fontSize={14}>Email</FormLabel>
+                  <HStack gap={6}>
+                    <Input
+                      type={"text"}
+                      variant={"solid"}
+                      required
+                      value={email.emailAddress}
+                      fontSize={"md"}
+                      onChange={(event) => {
+                        const { invalid, errorMessage } = verifyEmail(event);
+                        setEmail({
+                          ...email,
+                          emailAddress: event.target.value,
+                          isError: invalid,
+                          errorMessage: errorMessage,
+                        });
+                      }}
+                    />
+                    <Button
+                      as={motion.button}
+                      whileHover={{
+                        scale: 0.9,
+                        transition: { duration: 0.1 },
+                      }}
+                      whileTap={{ scale: 0.8, borderRadius: "5%" }}
+                      fontWeight={merriweather.style.fontWeight}
+                      color={"white"}
+                      size="md"
+                      bgColor={"black"}
+                      _hover={{ bgColor: "gray.700" }}
+                      onClick={() => joinMailingList(email, setEmail)}
+                    >
+                      Submit
+                    </Button>
+                  </HStack>
+                  {email.isError ? (
+                    <FormErrorMessage>{email.errorMessage}</FormErrorMessage>
+                  ) : (
+                    <></>
+                  )}
+                </FormControl>
+              </>
+            )}
+          </Flex>
+        </Flex>
       </Box>
     </>
   );
