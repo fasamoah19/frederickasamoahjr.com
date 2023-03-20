@@ -24,16 +24,16 @@ const theme = extendTheme({
     flexImageContainer900H: {
       direction: "column",
       width: "100%",
-      bgPos: "center",
+      bgPos: { base: "100% center", md: "center" },
       bgRepeat: "no-repeat",
       bgSize: "cover",
       bgAttachment: "fixed",
-      minHeight: { base: "fit-content", md: "900px" }
+      minHeight: { base: "100%", md: "900px" }
     },
     flexImageContainerFitContent: {
       direction: "column",
       width: "100%",
-      bgPos: "center",
+      bgPos: { base: "40%", md: "center" },
       bgRepeat: "no-repeat",
       bgSize: "cover",
       bgAttachment: "fixed",
@@ -54,20 +54,23 @@ const theme = extendTheme({
   textStyles: {
     h1: {
       fontSize: { base: '4xl', md: '7xl' }, // 40px , 72px
-      fontWeight: 'bold' // 700
+      fontWeight: 'bold', // 700
+      color: { base: 'white', md: 'black' }
     },
     h2: {
       textAlign: 'center',
-      fontSize: { base: 'xl', md: '4xl' }, // 40px
+      fontSize: { base: '2xl', md: '4xl' }, // 40px
       fontWeight: 'bold', // 700
-      mb: 8
+      mb: 8,
     },
     h2Caption: {
       fontStyle: 'italic',
       fontSize: { base: 'sm', md: 'lg' }, // 18px
+      fontWeight: 'bold',
+      color: { base: 'white', md: 'black' }
     },
     paragraph: {
-      fontSize: { base: 'md', md: 'lg' }, // 18px
+      fontSize: { base: 'sm', md: 'md', xl: 'xl' }, // 18px
       textAlign: 'justify'
     },
     prologue: {
@@ -84,7 +87,7 @@ const theme = extendTheme({
       fontSize: 'lg', // 18px
       fontWeight: 'medium',
       lineHeight: 10,
-      textAlign: 'justify'
+      textAlign: { base: 'center', md: 'justify' }
     },
     headerLinks: {
       fontSize: 'md'

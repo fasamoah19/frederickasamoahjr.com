@@ -18,7 +18,7 @@ import {
 import { useRef } from "react";
 import { motion } from "framer-motion";
 import { merriweather } from "@/fonts/merriweather";
-import BetaReadSignUpDrawer from "@/components/BetaReadSignUpDrawer";
+import BetaReadSignUpDrawer from "@/components/modals/BetaReadSignUpDrawer";
 import { GiFireSilhouette } from "react-icons/gi";
 import { useRouter } from "next/router";
 
@@ -65,18 +65,20 @@ export default function Home() {
             w="100%"
             h="inherit"
             bgColor="blackAlpha.300"
-            px={{ base: 4, md: 0 }}
             minHeight={"inherit"}
           >
             <Header textColor="white" />
 
             {/** Book Cover Section */}
             <Flex
-              py={32}
-              align={"top"}
-              width={"100%"}
+              py={{ base: 8, md: 32 }}
+              align={{ base: "center", md: "top" }}
+              width={{ base: "90%", md: "100%" }}
+              mx={"auto"}
+              px={{ md: 4 }}
               as={motion.section}
               justify={"center"}
+              direction={{ base: "column", md: "row" }}
               initial={{ opacity: 0, y: 100 }}
               animate={{
                 opacity: 1,
@@ -88,27 +90,33 @@ export default function Home() {
                 pos={"relative"}
                 src={"/Book Cover Template To Export.png"}
                 alt={"Book cover placeholder"}
-                height={{ base: 400, md: 500 }}
-                width={{ base: 250, md: 340 }}
+                height={{ base: "full", md: 500 }}
+                width={{ base: "full", md: 340 }}
                 onClick={() => scrollToSectionAfterExpanded("SYNOPSIS")}
                 _hover={{ cursor: "pointer" }}
               />
 
-              <Box w={20} />
-              <Flex direction={"column"}>
+              <Box w={{ base: 0, md: 20 }} />
+              <Flex
+                direction={"column"}
+                w={{ base: "100%", md: "fit-content" }}
+                pt={{ base: 8, md: 0 }}
+                pl={{ md: 1}}
+                align={{ base: "center", md: "start" }}
+              >
                 <Text textStyle={"h1"}>The Pivot</Text>
+
                 {/** Book Title Section */}
                 <VStack
                   direction={"column"}
                   py={4}
-                  align={"start"}
-                  justify={"start"}
-                  spacing={12}
+                  spacing={6}
+                  align={{ md: "start" }}
                 >
                   <Text textStyle={"h2Caption"} maxW={"400px"}>
                     Book One in the Trinity Bound by Fate Series
                   </Text>
-                  <HStack spacing={4}>
+                  <HStack spacing={4} justify={'center'}>
                     <Tag
                       boxShadow={"md"}
                       size={"md"}
@@ -130,14 +138,21 @@ export default function Home() {
                   </HStack>
 
                   {/** Sign Up to Beta Read */}
-                  <ButtonGroup spacing={4}>
+                  <ButtonGroup
+                    gap={4}
+                    flexDirection={{ base: "column", md: "row" }}
+                    spacing={0}
+                  >
                     <Button
                       as={motion.button}
-                      whileHover={{ scale: 0.9, transition: { duration: 0.1 } }}
+                      whileHover={{
+                        scale: 0.9,
+                        transition: { duration: 0.1 },
+                      }}
                       whileTap={{ scale: 0.8, borderRadius: "5%" }}
                       fontWeight={merriweather.style.fontWeight}
                       color={"white"}
-                      size={"md"}
+                      size={{ base: "md", md: "md" }}
                       bgColor={"black"}
                       _hover={{ bgColor: "gray.700" }}
                       onClick={onOpen}
@@ -146,16 +161,19 @@ export default function Home() {
                     </Button>
                     <Button
                       as={motion.button}
-                      whileHover={{ scale: 0.9, transition: { duration: 0.1 } }}
+                      whileHover={{
+                        scale: 0.9,
+                        transition: { duration: 0.1 },
+                      }}
                       whileTap={{ scale: 0.8, borderRadius: "5%" }}
                       fontWeight={merriweather.style.fontWeight}
                       color={"white"}
-                      size={"md"}
+                      size={{ base: "md", md: "md" }}
                       bgColor={"black"}
                       _hover={{ bgColor: "gray.700" }}
                       onClick={() => router.push("/the-pivot/prologue")}
                     >
-                      READ PROLOGUE
+                      READ THE PROLOGUE
                     </Button>
                   </ButtonGroup>
                 </VStack>
@@ -174,7 +192,7 @@ export default function Home() {
           id={"book-summary"}
           bgColor={"white"}
           ref={synopsisRef}
-          py={32}
+          py={{ base: 8, md: 32 }}
           width={"100%"}
           justify={"center"}
           align={"start"}
@@ -195,8 +213,8 @@ export default function Home() {
             <Text
               mt={4}
               fontFamily={merriweather.style.fontFamily}
-              fontSize={18}
-              textAlign={"justify"}
+              fontSize={{ base: "md", md: "lg" }}
+              textAlign={{ base: 'center', md: 'justify' }}
             >
               Daniel Ansah, a recent college graduate, is striving towards his
               dream to become a mental health clinician. That dream is shattered
@@ -237,7 +255,7 @@ export default function Home() {
             w="100%"
             h="inherit"
             bgColor="blackAlpha.600"
-            py={32}
+            py={{ base: 8, md: 32 }}
             ref={excerptRef}
             px={{ base: 4, md: 0 }}
           >
@@ -268,7 +286,7 @@ export default function Home() {
         </Flex>
         {/** Trigger Warnings */}
         <Flex
-          py={32}
+          py={{ base: 8, md: 32 }}
           width={"100%"}
           justify={"center"}
           align={"center"}
@@ -277,7 +295,7 @@ export default function Home() {
           <Text textStyle={"h2"}>Content and Trigger Warnings</Text>
           <SimpleGrid
             as={motion.div}
-            mt={8}
+            mt={{ base: 2, md: 8 }}
             columns={{ base: 1, md: 2 }}
             justifyContent={"center"}
             spacing={8}

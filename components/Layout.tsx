@@ -1,5 +1,5 @@
 import { Box, useDisclosure } from "@chakra-ui/react";
-import BetaReadSignUpDrawer from "./BetaReadSignUpDrawer";
+import BetaReadSignUpDrawer from "./modals/BetaReadSignUpDrawer";
 import Footer from "./Footer";
 import Header from "./Header";
 
