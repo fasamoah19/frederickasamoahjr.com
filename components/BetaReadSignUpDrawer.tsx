@@ -176,9 +176,18 @@ export default function BetaReadSignUpDrawer({
             <Text as={"span"} fontWeight={"bold"}>
               Friday May 12th, 2023
             </Text>
-            . Please read the prologue found here before signing up to ensure
-            you like the writing style of Fred Asamoah Jr first. (Insert link
-            here)
+            . Please{" "}
+            <Link
+              as={NextLink}
+              href={"/the-pivot/prologue"}
+              target={"_blank"}
+              textDecoration={"underline"}
+              fontWeight={'bold'}
+            >
+               read the prologue
+            </Link>{" "}
+            found here before signing up to ensure you like the writing style of
+            Fred Asamoah Jr first.
           </Text>
           <br />
           <Text fontSize={"sm"} fontWeight={"bold"}>

@@ -71,6 +71,12 @@ const theme = extendTheme({
       fontSize: { base: 'md', md: 'lg' }, // 18px
       textAlign: 'justify'
     },
+    prologue: {
+      fontSize: "md",
+      lineHeight: '7',
+      mb: 1,
+      whiteSpace: 'break-spaces'
+    },
     // Used for the Header component
     headerText: {
       fontSize: 'lg' // 18px
