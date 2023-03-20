@@ -20,6 +20,7 @@ import { motion } from "framer-motion";
 import { merriweather } from "@/fonts/merriweather";
 import BetaReadSignUpDrawer from "@/components/BetaReadSignUpDrawer";
 import { GiFireSilhouette } from "react-icons/gi";
+import { useRouter } from "next/router";
 
 /**
  * Home Page
@@ -29,6 +30,7 @@ import { GiFireSilhouette } from "react-icons/gi";
 export default function Home() {
   const synopsisRef = useRef<HTMLInputElement>(null);
   const excerptRef = useRef<HTMLInputElement>(null);
+  const router = useRouter();
 
   const { isOpen, onOpen, onClose } = useDisclosure();
 
@@ -151,9 +153,9 @@ export default function Home() {
                       size={"md"}
                       bgColor={"black"}
                       _hover={{ bgColor: "gray.700" }}
-                      onClick={() => scrollToSectionAfterExpanded("EXCERPT")}
+                      onClick={() => router.push("/the-pivot/prologue")}
                     >
-                      READ EXCERPT
+                      READ PROLOGUE
                     </Button>
                   </ButtonGroup>
                 </VStack>
