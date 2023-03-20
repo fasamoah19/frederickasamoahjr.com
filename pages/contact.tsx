@@ -1,9 +1,7 @@
 import Header from "@/components/Header";
-import { merriweather } from "@/fonts/merriweather";
 import {
   Box,
   Button,
-  Divider,
   Flex,
   FormControl,
   FormLabel,
@@ -24,17 +22,16 @@ export default function ContactPage() {
   return (
     <>
       <HeadComponent title="Contact | Frederick Asamoah Jr" />
-
-      <Box as={"main"}>
-        <Flex width={"100%"} direction={"column"} height={{ base: "100%" }}>
+      <Box as="main" height={"100vh"}>
+        <Flex width={"100%"} direction={"column"}>
           <Header />
-          <Flex w={"100%"} direction={"column"} py={32}>
+          <Flex w={"100%"} direction={"column"} py={{base: 8, md: 32}}>
             <Text textStyle={"h2"} mb={8}>
               Contact Me
             </Text>
             {/** Contact Form */}
             <form id="submit-contact" onSubmit={() => {}}>
-              <VStack spacing={6} width={"40%"} mx={"auto"}>
+              <VStack spacing={6} width={{base: '90%', sm: '80%', md: '70%', lg: "40%"}} mx={"auto"}>
                 {/** Name */}
                 <FormControl isRequired>
                   <FormLabel fontSize={14}>Name</FormLabel>

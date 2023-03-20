@@ -1,4 +1,4 @@
-import BetaReadSignUpDrawer from "@/components/BetaReadSignUpDrawer";
+import BetaReadSignUpDrawer from "@/components/modals/BetaReadSignUpDrawer";
 import HeadComponent from "@/components/HeadComponent";
 import Header from "@/components/Header";
 import { merriweather } from "@/fonts/merriweather";
