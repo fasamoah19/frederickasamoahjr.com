@@ -1,4 +1,5 @@
 import { merriweather } from "@/fonts/merriweather";
+import { verifyEmail } from "@/lib/helper-functions";
 import {
   betaReadDefaultValues,
   betaReadReducer,
@@ -25,7 +26,7 @@ import {
 } from "@chakra-ui/react";
 import { motion } from "framer-motion";
 import NextLink from "next/link";
-import { ChangeEvent, useReducer } from "react";
+import { useReducer } from "react";
 
 /** Props for the BetaReadSignUpDrawer */
 type BetaReadSignUpDrawerProps = {
@@ -52,31 +53,6 @@ export default function BetaReadSignUpDrawer({
     dispatch({ type: "reset" });
     onClose();
   };
-
-  // Regex to verify proper email address
-  const mailformat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
-
-  /**
-   * Verifies email input from a user
-   *
-   * @param event ChangeEvent
-   * @returns An object containing a boolean value and a potential error message
-   */
-  function verifyEmail(event: ChangeEvent<HTMLInputElement>) {
-    let invalid: boolean = false;
-    let errorMessage: string = "";
-
-    if (!event.target.validity.valid) {
-      invalid = !event.target.validity.valid;
-      if (event.target.validity.tooLong) {
-        errorMessage = "The email entered is too long.";
-      } else if (!event.target.value.match(mailformat)) {
-        errorMessage = "Enter a valid email address";
-      }
-    }
-
-    return { invalid, errorMessage };
-  }
 
   /**
    * Helper function that will display a toast message stating if the submission
@@ -132,7 +108,7 @@ export default function BetaReadSignUpDrawer({
       const response = await fetch("/api/beta-read-request", {
         method: "POST",
         headers: {
-          "Content-Type": "application/json",
+          "Content-Type": "application/json"
         },
         body: JSON.stringify({
           name: state.name,

@@ -1,4 +1,8 @@
-import { Box, Flex, Image, Text } from "@chakra-ui/react";
+import { merriweather } from "@/fonts/merriweather";
+import { EmailObject, verifyEmail, joinMailingList } from "@/lib/helper-functions";
+import { Box, Button, Flex, FormControl, FormErrorMessage, FormLabel, HStack, Image, Input, Text } from "@chakra-ui/react";
+import { motion } from "framer-motion";
+import { useState } from "react";
 import HeadComponent from "../components/HeadComponent";
 import Header from "../components/Header";
 
@@ -8,6 +12,13 @@ import Header from "../components/Header";
  * @returns AboutPage component
  */
 export default function AboutPage() {
+  const [email, setEmail] = useState<EmailObject>({
+    emailAddress: "",
+    isError: false,
+    errorMessage: "",
+    submittedSuccessfully: false,
+  });
+  
   return (
     <>
       <HeadComponent title="About | Fred Asamoah Jr" />
@@ -58,6 +69,71 @@ export default function AboutPage() {
               the millionth time), playing his Playstation or listening to
               music.
             </Text>
+          </Flex>
+        </Flex>
+                {/** Newletter Sign Up*/}
+                <Flex
+          py={{ base: 8, md: 16 }}
+          width={"100%"}
+          justify={"center"}
+          align={"center"}
+          direction={"column"}
+          bgColor={"blackAlpha.100"}
+        >
+          <Text textStyle={"h2"}>Sign Up For My Newsletter</Text>
+          <Flex align={"end"} direction={"row"}>
+            {email.submittedSuccessfully ? (
+              <Text
+                mt={4}
+                fontFamily={merriweather.style.fontFamily}
+                fontSize={'md'}
+              >Successfully joined the newsletter! Be on the look out for updates soon.</Text>
+            ) : (
+              <>
+                <FormControl isInvalid={email.isError}>
+                  <FormLabel fontSize={14}>Email</FormLabel>
+                  <HStack gap={6}>
+                    <Input
+                      type={"text"}
+                      variant={"solid"}
+                      required
+                      value={email.emailAddress}
+                      fontSize={"md"}
+                      onChange={(event) => {
+                        const { invalid, errorMessage } = verifyEmail(event);
+                        setEmail({
+                          ...email,
+                          emailAddress: event.target.value,
+                          isError: invalid,
+                          errorMessage: errorMessage,
+                        });
+                      }}
+                    />
+                    <Button
+                      as={motion.button}
+                      whileHover={{
+                        scale: 0.9,
+                        transition: { duration: 0.1 },
+                      }}
+                      whileTap={{ scale: 0.8, borderRadius: "5%" }}
+                      fontWeight={merriweather.style.fontWeight}
+                      color={"white"}
+                      size="md"
+                      bgColor={"black"}
+                      _hover={{ bgColor: "gray.700" }}
+                      onClick={() => joinMailingList(email, setEmail)}
+                    >
+                      Submit
+                    </Button>
+                  </HStack>
+                  {email.isError ? (
+                    <FormErrorMessage>{email.errorMessage}</FormErrorMessage>
+                  ) : (
+                    <></>
+                  )}
+                </FormControl>
+              </>
+            )}
           </Flex>
         </Flex>
       </Box>
