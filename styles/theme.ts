@@ -59,7 +59,8 @@ const theme = extendTheme({
     h2: {
       textAlign: 'center',
       fontSize: { base: 'xl', md: '4xl' }, // 40px
-      fontWeight: 'bold' // 700
+      fontWeight: 'bold', // 700
+      mb: 8
     },
     h2Caption: {
       fontStyle: 'italic',

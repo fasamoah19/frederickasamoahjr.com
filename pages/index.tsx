@@ -12,11 +12,14 @@ import {
   Button,
   ButtonGroup,
   useDisclosure,
+  SimpleGrid,
+  Icon,
 } from "@chakra-ui/react";
 import { useRef } from "react";
 import { motion } from "framer-motion";
 import { merriweather } from "@/fonts/merriweather";
 import BetaReadSignUpDrawer from "@/components/BetaReadSignUpDrawer";
+import { GiFireSilhouette } from "react-icons/gi";
 
 /**
  * Home Page
@@ -47,7 +50,7 @@ export default function Home() {
     <>
       <BetaReadSignUpDrawer isOpen={isOpen} onClose={onClose} />
       <HeadComponent title="Home | Fred Asamoah Jr" />
-      <Box>
+      <Box bgColor={'white'}>
         <Flex
           bgImage={"/images/image-manipulation-3442184.jpg"}
           layerStyle="flexImageContainer900H"
@@ -185,9 +188,7 @@ export default function Home() {
             whileInView={{ opacity: 1, x: 0, transition: { duration: 1.25 } }}
             viewport={{ once: true }}
           >
-            <Text textStyle={"h2"} mb={4}>
-              Synopsis
-            </Text>
+            <Text textStyle={"h2"}>Synopsis</Text>
 
             <Text
               mt={4}
@@ -243,9 +244,7 @@ export default function Home() {
             ref={excerptRef}
             px={{ base: 4, md: 0 }}
           >
-            <Text textStyle={"h2"} mb={8}>
-              Excerpt
-            </Text>
+            <Text textStyle={"h2"}>Excerpt</Text>
             <Flex
               as={motion.div}
               width={"100%"}
@@ -270,9 +269,84 @@ export default function Home() {
             </Flex>
           </Flex>
         </Flex>
+        {/** Trigger Warnings */}
+        <Flex
+          py={32}
+          width={"100%"}
+          justify={"center"}
+          align={"center"}
+          direction={"column"}
+        >
+          <Text textStyle={"h2"}>Content and Trigger Warnings</Text>
+          <SimpleGrid
+            as={motion.div}
+            mt={8}
+            columns={{ base: 1, md: 2 }}
+            justifyContent={"center"}
+            spacing={8}
+            width={"70%"}
+            mx={"auto"}
+          >
+            <HStack
+              as={motion.div}
+              initial={{ opacity: 0, x: 300 }}
+              whileInView={{ opacity: 1, x: 0, transition: { duration: 1.0 } }}
+              viewport={{ once: true }}
+              justify={"center"}
+              align={"center"}
+            >
+              <Icon as={GiFireSilhouette} boxSize={5} />
+              <Text fontSize={18}>Violence</Text>
+            </HStack>
+            <HStack
+              as={motion.div}
+              initial={{ opacity: 0, x: 300 }}
+              whileInView={{ opacity: 1, x: 0, transition: { duration: 1.0 } }}
+              viewport={{ once: true }}
+              justify={"center"}
+              align={"center"}
+            >
+              <Icon as={GiFireSilhouette} boxSize={5} />
+              <Text fontSize={18}>Mental Health</Text>
+            </HStack>
+            <HStack
+              as={motion.div}
+              initial={{ opacity: 0, x: 300 }}
+              whileInView={{ opacity: 1, x: 0, transition: { duration: 1.0 } }}
+              viewport={{ once: true }}
+              justify={"center"}
+              align={"center"}
+            >
+              <Icon as={GiFireSilhouette} boxSize={5} />
+              <Text fontSize={18}>Harm to children</Text>
+            </HStack>
+            <HStack
+              as={motion.div}
+              initial={{ opacity: 0, x: 300 }}
+              whileInView={{ opacity: 1, x: 0, transition: { duration: 1.0 } }}
+              viewport={{ once: true }}
+              justify={"center"}
+              align={"center"}
+            >
+              <Icon as={GiFireSilhouette} boxSize={5} />
+              <Text fontSize={18}>Therapy</Text>
+            </HStack>
+            <HStack
+              as={motion.div}
+              initial={{ opacity: 0, x: 300 }}
+              whileInView={{ opacity: 1, x: 0, transition: { duration: 1.0 } }}
+              viewport={{ once: true }}
+              justify={"center"}
+              align={"center"}
+            >
+              <Icon as={GiFireSilhouette} boxSize={5} />
+              <Text fontSize={18}>Religion</Text>
+            </HStack>
+          </SimpleGrid>
+        </Flex>
 
         {/** Newletter Sign Up*/}
-        <Flex
+        {/* <Flex
           py={32}
           width={"100%"}
           justify={"center"}
@@ -282,7 +356,7 @@ export default function Home() {
           <Text fontFamily={merriweather.style.fontFamily} fontSize={"4xl"}>
             Sign Up For My Newsletter
           </Text>
-        </Flex>
+        </Flex> */}
       </Box>
     </>
   );
