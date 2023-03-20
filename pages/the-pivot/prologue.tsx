@@ -6,6 +6,11 @@ import { Box, Button, Flex, Icon, Text, useDisclosure } from "@chakra-ui/react";
 import { motion } from "framer-motion";
 import { GiFireSilhouette } from "react-icons/gi";
 
+/**
+ * This page displays the Prologue of The Pivot
+ * 
+ * @returns ProloguePage component
+ */
 export default function ProloguePage() {
   const { isOpen, onOpen, onClose } = useDisclosure();
 
@@ -22,10 +27,12 @@ export default function ProloguePage() {
           pt={32}
           pb={16}
         >
+          {/** Page Title */}
           <Text textStyle={"h2"}> The Pivot - Prologue</Text>
           <Flex width={"100%"} justify={"center"} mb={8}>
             <Icon as={GiFireSilhouette} boxSize={5} />
           </Flex>
+          {/** Prologue */}
           <Flex
             width={"100%"}
             justify={"center"}
@@ -149,6 +156,7 @@ export default function ProloguePage() {
           <Flex width={"100%"} justify={"center"} my={8}>
             <Icon as={GiFireSilhouette} boxSize={5} />
           </Flex>
+          {/** Sign Up To Beta Read Button */}
           <Flex width={"100%"} justify={"center"}>
             <Button
               as={motion.button}

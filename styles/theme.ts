@@ -65,7 +65,6 @@ const theme = extendTheme({
     h2Caption: {
       fontStyle: 'italic',
       fontSize: { base: 'sm', md: 'lg' }, // 18px
-      fontWeight: 'semibold'
     },
     paragraph: {
       fontSize: { base: 'md', md: 'lg' }, // 18px

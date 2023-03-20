@@ -52,7 +52,7 @@ export default function Home() {
     <>
       <BetaReadSignUpDrawer isOpen={isOpen} onClose={onClose} />
       <HeadComponent title="Home | Fred Asamoah Jr" />
-      <Box bgColor={'white'}>
+      <Box bgColor={"white"}>
         <Flex
           bgImage={"/images/image-manipulation-3442184.jpg"}
           layerStyle="flexImageContainer900H"
@@ -86,7 +86,7 @@ export default function Home() {
             >
               <Image
                 pos={"relative"}
-                src={"/Book Cover Template.png"}
+                src={"/Book Cover Template To Export.png"}
                 alt={"Book cover placeholder"}
                 height={{ base: 400, md: 500 }}
                 width={{ base: 250, md: 340 }}
@@ -199,27 +199,22 @@ export default function Home() {
               textAlign={"justify"}
             >
               Daniel Ansah, a recent college graduate, is striving towards his
-              dream to become a mental health clinician. But that dream is
-              shattered as he awakens a dark energy within, causing him to leave
-              trails of blood every time he activates it.
+              dream to become a mental health clinician. That dream is shattered
+              when he awakens a dark energy within. Every time it activates, he
+              leaves a trail of blood behind him.
               <br />
               <br />
               Labeled as a demon and a threat to the world, his family and
               friends shun him, while the U.S. government attempts to weaponize
-              him for global domination.
+              him for global domination. Until the day of a heated chase, when
+              Daniel accidentally teleports himself to a foreign planet.
               <br />
               <br />
-              With his powers still a mystery, Daniel teleports himself to a
-              foreign planet where the locals demand that he confront his trauma
-              before he&apos;s allowed to stay. With nowhere to go, Daniel
-              accepts their terms with crossed fingers, plotting to keep his
-              past hidden as long as possible.
-              <br />
-              <br />
-              His decision places the entire village at risk of death not only
-              because of his uncontrolled powers, but that his presence
-              re-awakens an old foe of their village&apos;s leader. This foe
-              comes with a warning. Hand over Daniel or prepare for war.
+              With nowhere to go, Daniel must learn to live amongst the locals
+              while plotting to keep his past hidden for as long as possible.
+              His decision places the entire village at risk not only because of
+              his uncontrolled powers, but also because his presence re-awakens
+              an old foe of their village&apos;s leader.
               <br />
               <br />
               Will Daniel be able to pivot to realize his destiny? Or will he
