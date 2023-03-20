@@ -17,7 +17,7 @@ import HeadComponent from "../components/HeadComponent";
 
 /**
  * Contact Page
- * 
+ *
  * @returns ContactPage Component
  */
 export default function ContactPage() {
@@ -26,14 +26,9 @@ export default function ContactPage() {
       <HeadComponent title="Contact | Frederick Asamoah Jr" />
 
       <Box as={"main"}>
-        <Flex
-          width={"100%"}
-          direction={"column"}
-          height={{ base: "100%", md: "100vh" }}
-        >
+        <Flex width={"100%"} direction={"column"} height={{ base: "100%" }}>
           <Header />
-          <Divider />
-          <Flex w={"100%"} direction={"column"} justify={"center"} py={32}>
+          <Flex w={"100%"} direction={"column"} py={32}>
             <Text textStyle={"h2"} mb={8}>
               Contact Me
             </Text>
@@ -42,11 +37,7 @@ export default function ContactPage() {
               <VStack spacing={6} width={"40%"} mx={"auto"}>
                 {/** Name */}
                 <FormControl isRequired>
-                  <FormLabel
-                    fontSize={14}
-                  >
-                    Name
-                  </FormLabel>
+                  <FormLabel fontSize={14}>Name</FormLabel>
                   <Input
                     type={"text"}
                     variant={"outline"}
@@ -57,44 +48,22 @@ export default function ContactPage() {
 
                 {/** Email */}
                 <FormControl isRequired>
-                  <FormLabel
-                    fontSize={14}
-                  >
-                    Email
-                  </FormLabel>
-                  <Input
-                    type={"text"}
-                    variant={"outline"}
-                    fontSize={16}
-                  />
+                  <FormLabel fontSize={14}>Email</FormLabel>
+                  <Input type={"text"} variant={"outline"} fontSize={16} />
                 </FormControl>
 
                 {/** Subject */}
                 <FormControl isRequired>
-                  <FormLabel
-                    fontSize={14}
-                  >
-                    Subject
-                  </FormLabel>
-                  <Input
-                    type={"text"}
-                    variant={"outline"}
-                    fontSize={16}
-                  />
+                  <FormLabel fontSize={14}>Subject</FormLabel>
+                  <Input type={"text"} variant={"outline"} fontSize={16} />
                 </FormControl>
 
                 {/** Message */}
                 <FormControl isRequired>
-                  <FormLabel
-                    fontSize={14}
-                  >
-                    Message
-                  </FormLabel>
-                  <Textarea
-                    variant={"outline"}
-                    fontSize={16}
-                  />
+                  <FormLabel fontSize={14}>Message</FormLabel>
+                  <Textarea variant={"outline"} fontSize={16} />
                 </FormControl>
+
                 <Button
                   as={motion.button}
                   whileHover={{ scale: 0.9, transition: { duration: 0.1 } }}
