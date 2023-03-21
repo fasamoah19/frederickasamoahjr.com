@@ -19,6 +19,7 @@ export type ContactMeState = {
   hcaptchaToken: string | null,
   isHcaptchaError: boolean;
   selectedHCaptcha: boolean;
+  isSubmitting: boolean;
 }
 
 /** Contact Me Form Actions  */
@@ -44,6 +45,7 @@ export type ContactMeAction = | { type: 'reset' } | {
     hcaptchaToken: string | null,
     isHcaptchaError: boolean;
     selectedHCaptcha: boolean;
+    isSubmitting: boolean;
   }
 }
 
@@ -68,6 +70,8 @@ export const contactMeDefaultValues = {
   hcaptchaToken: null,
   isHcaptchaError: false,
   selectedHCaptcha: false,
+
+  isSubmitting: false,
 }
 
 /** Reducer used for the contact me form. */
@@ -95,7 +99,9 @@ export const contactMeReducer = (state: ContactMeState, action: ContactMeAction)
 
         hcaptchaToken: action.payload.hcaptchaToken,
         isHcaptchaError: action.payload.isHcaptchaError,
-        selectedHCaptcha: action.payload.selectedHCaptcha
+        selectedHCaptcha: action.payload.selectedHCaptcha,
+
+        isSubmitting: action.payload.isSubmitting,
       }
     default:
       throw new Error(`Unknown action type: ${action}`);

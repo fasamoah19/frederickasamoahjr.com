@@ -105,7 +105,7 @@ export default function ContactPage() {
       if (hcaptchaResponse.status == 200) {
         dispatch({
           type: "update",
-          payload: { ...state, hcaptchaToken: null },
+          payload: { ...state, hcaptchaToken: null, isSubmitting: true, },
         });
 
         // Sends notification to discord
@@ -117,6 +117,9 @@ export default function ContactPage() {
             subject: state.subject,
             message: state.message,
           }),
+          headers: {
+            "Content-Type": "application/json",
+          }
         });
 
         if (discordResponse.status == 200) {
@@ -174,6 +177,7 @@ export default function ContactPage() {
                     size={"md"}
                     fontSize={16}
                     minLength={2}
+                    value={state.name}
                     maxLength={65336}
                     onChange={(event) => {
                       dispatch({
@@ -204,6 +208,7 @@ export default function ContactPage() {
                     variant={"outline"}
                     fontSize={16}
                     minLength={2}
+                    value={state.email}
                     maxLength={65336}
                     onChange={(event) => {
                       const { invalid, errorMessage } = verifyEmail(event);
@@ -236,6 +241,7 @@ export default function ContactPage() {
                     fontSize={16}
                     minLength={2}
                     maxLength={65336}
+                    value={state.subject}
                     onChange={(event) => {
                       dispatch({
                         type: "update",
@@ -263,6 +269,7 @@ export default function ContactPage() {
                   <Textarea
                     variant={"outline"}
                     fontSize={16}
+                    value={state.message}
                     onChange={(event) => {
                       dispatch({
                         type: "update",
@@ -320,6 +327,8 @@ export default function ContactPage() {
                   type="submit"
                   form="submit-contact-form"
                   as={motion.button}
+                  isLoading={state.isSubmitting}
+                  loadingText='Submitting'
                   whileHover={{ scale: 0.9, transition: { duration: 0.1 } }}
                   whileTap={{ scale: 0.8, borderRadius: "5%" }}
                   fontWeight={400}
