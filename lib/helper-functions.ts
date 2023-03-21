@@ -24,6 +24,7 @@ export function verifyEmail(event: ChangeEvent<HTMLInputElement>) {
 
   return { invalid, errorMessage };
 }
+
 /** Email object for adding a new subscriber to the newsletter */
 export type EmailObject = {
   emailAddress: string;
@@ -80,3 +81,23 @@ export async function joinMailingList(email: EmailObject, setEmail: Dispatch<Set
     });
   }
 };
+
+/**
+ * Helper functiont that verifies the HCaptcha token
+ * 
+ * @param hcaptchaToken HCaptcha token
+ * @returns Response from the server
+ */
+export async function verifyHCaptcha(hcaptchaToken: string | null) {
+  const response = await fetch("/api/verify_hcaptcha", {
+    method: "POST",
+    body: JSON.stringify({
+      hcaptcha: hcaptchaToken,
+    }),
+    headers: {
+      "Content-Type": "application/json",
+    },
+  })
+
+  return response;
+}
