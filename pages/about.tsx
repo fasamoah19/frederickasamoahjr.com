@@ -1,6 +1,21 @@
 import { merriweather } from "@/fonts/merriweather";
-import { EmailObject, verifyEmail, joinMailingList } from "@/lib/helper-functions";
-import { Box, Button, Flex, FormControl, FormErrorMessage, FormLabel, HStack, Image, Input, Text } from "@chakra-ui/react";
+import {
+  EmailObject,
+  verifyEmail,
+  joinMailingList,
+} from "@/lib/helper-functions";
+import {
+  Box,
+  Button,
+  Flex,
+  FormControl,
+  FormErrorMessage,
+  FormLabel,
+  HStack,
+  Image,
+  Input,
+  Text,
+} from "@chakra-ui/react";
 import { motion } from "framer-motion";
 import { useState } from "react";
 import HeadComponent from "../components/HeadComponent";
@@ -18,7 +33,7 @@ export default function AboutPage() {
     errorMessage: "",
     submittedSuccessfully: false,
   });
-  
+
   return (
     <>
       <HeadComponent title="About | Fred Asamoah Jr" />
@@ -26,7 +41,7 @@ export default function AboutPage() {
         <Flex width={"100%"} direction={"column"}>
           <Header textColor="black" />
           <Flex
-            py={{ base: 8, md: 32 }}
+            py={{ base: 16, md: 32 }}
             as={"section"}
             align={"center"}
             justify={"center"}
@@ -71,8 +86,8 @@ export default function AboutPage() {
             </Text>
           </Flex>
         </Flex>
-                {/** Newletter Sign Up*/}
-                <Flex
+        {/** Newletter Sign Up*/}
+        <Flex
           py={{ base: 8, md: 16 }}
           width={"100%"}
           justify={"center"}
@@ -86,8 +101,11 @@ export default function AboutPage() {
               <Text
                 mt={4}
                 fontFamily={merriweather.style.fontFamily}
-                fontSize={'md'}
-              >Successfully joined the newsletter! Be on the look out for updates soon.</Text>
+                fontSize={"md"}
+              >
+                Successfully joined the newsletter! Be on the look out for
+                updates soon.
+              </Text>
             ) : (
               <>
                 <FormControl isInvalid={email.isError}>

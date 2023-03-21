@@ -14,18 +14,13 @@ import { HamburgerIcon } from "@chakra-ui/icons";
 import NextLink from "next/link";
 import MenuDrawer from "./modals/MenuDrawer";
 
-// Props necessary for the Header
-type HeaderProps = {
-  textColor?: string; // The text color received will determine the hover underline cover effect
-};
-
 /**
  * Header for the website
  *
  * @param param0 HeaderProps
  * @returns
  */
-export default function Header({ textColor = "black" }: HeaderProps) {
+export default function Header({...props}) {
   const { isOpen, onOpen, onClose } = useDisclosure();
   return (
     <>
@@ -36,7 +31,7 @@ export default function Header({ textColor = "black" }: HeaderProps) {
           direction={"row"}
           align={"center"}
           mx="auto"
-          color={textColor}
+          color={props.textColor}
         >
           <Text textStyle={"headerText"}>fred.asamoah.jr</Text>
           <Spacer />
@@ -45,24 +40,24 @@ export default function Header({ textColor = "black" }: HeaderProps) {
               <Link as={NextLink} passHref href={"/"}>
                 <TextWithUnderlineHoverComponent
                   text={"home"}
-                  underlineColor={textColor}
+                  underlineColor={props.textColor}
                 />
               </Link>
               <Link as={NextLink} passHref href={"/about"}>
                 <TextWithUnderlineHoverComponent
                   text={"about"}
-                  underlineColor={textColor}
+                  underlineColor={props.textColor}
                 />
               </Link>
               <Link as={NextLink} passHref href={"/contact"}>
                 <TextWithUnderlineHoverComponent
                   text={"contact"}
-                  underlineColor={textColor}
+                  underlineColor={props.textColor}
                 />
               </Link>
             </Show>
             <Hide above="md">
-              <HamburgerIcon boxSize={6} onClick={onOpen} />
+              <HamburgerIcon _hover={{ cursor: 'pointer'}} boxSize={6} onClick={onOpen} />
             </Hide>
           </HStack>
         </Flex>
