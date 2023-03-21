@@ -1,6 +1,14 @@
 // Next.js API route support: https://nextjs.org/docs/api-routes/introduction
 import type { NextApiRequest, NextApiResponse } from 'next'
 
+/**
+ * This API Route adds a beta reader to a Google Spreadsheet and then
+ * sends a notification to a discord server
+ * 
+ * @param req NextApiRequest
+ * @param res NextApiResponse
+ * @returns Status of the response and JSON data
+ */
 export default async function handler(
   req: NextApiRequest,
   res: NextApiResponse
