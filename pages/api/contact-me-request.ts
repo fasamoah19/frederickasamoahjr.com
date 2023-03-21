@@ -37,7 +37,7 @@ export default async function handler(
     // Notifies discord
     await fetch(process.env.NEXT_PUBLIC_CONTACT_ME_DISCORD_WEBHOOK!, {
       method: 'POST',
-      body: JSON.stringify(message),
+      body: JSON.stringify(discordMessage),
       headers: {
         "Content-Type": "application/json",
       }
