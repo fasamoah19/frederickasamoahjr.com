@@ -19,6 +19,8 @@ import {
   FormLabel,
   FormErrorMessage,
   Divider,
+  Show,
+  Hide,
 } from "@chakra-ui/react";
 import { useRef, useState } from "react";
 import { motion } from "framer-motion";
@@ -26,7 +28,11 @@ import { merriweather } from "@/fonts/merriweather";
 import BetaReadSignUpDrawer from "@/components/modals/BetaReadSignUpDrawer";
 import { GiFireSilhouette } from "react-icons/gi";
 import { useRouter } from "next/router";
-import { EmailObject, joinMailingList, verifyEmail } from "@/lib/helper-functions";
+import {
+  EmailObject,
+  joinMailingList,
+  verifyEmail,
+} from "@/lib/helper-functions";
 
 /**
  * Home Page
@@ -67,7 +73,7 @@ export default function Home() {
       <HeadComponent title="Home | Fred Asamoah Jr" />
       <Box bgColor={"white"}>
         <Flex
-          bgImage={"/images/image-manipulation-3442184.jpg"}
+          bgImage={{ base: "", md: "/images/image-manipulation-3442184.jpg" }}
           layerStyle="flexImageContainer900H"
         >
           <Flex
@@ -77,10 +83,10 @@ export default function Home() {
             pos="relative"
             w="100%"
             h="inherit"
-            bgColor="blackAlpha.300"
+            bgColor={{ base: "", md: "blackAlpha.300" }}
             minHeight={"inherit"}
           >
-            <Header textColor="white" />
+            <Header textColor={{ base: "black", md: "white" }} />
 
             {/** Book Cover Section */}
             <Flex
@@ -117,7 +123,9 @@ export default function Home() {
                 pl={{ md: 1 }}
                 align={{ base: "center", md: "start" }}
               >
-                <Text textStyle={"h1"}>The Pivot</Text>
+                <Text textStyle={"h1"} color={"black"}>
+                  The Pivot
+                </Text>
 
                 {/** Book Title Section */}
                 <VStack
@@ -126,7 +134,7 @@ export default function Home() {
                   spacing={6}
                   align={{ md: "start" }}
                 >
-                  <Text textStyle={"h2Caption"} maxW={"400px"}>
+                  <Text textStyle={"h2Caption"} maxW={"400px"} color={"black"}>
                     Book One in the Trinity Bound by Fate Series
                   </Text>
                   <HStack spacing={4} justify={"center"}>
@@ -165,7 +173,7 @@ export default function Home() {
                       whileTap={{ scale: 0.8, borderRadius: "5%" }}
                       fontWeight={merriweather.style.fontWeight}
                       color={"white"}
-                      size={{base: "md", md: "sm"}}
+                      size={{ base: "md", md: "sm" }}
                       bgColor={"black"}
                       _hover={{ bgColor: "gray.700" }}
                       onClick={onOpen}
@@ -181,7 +189,7 @@ export default function Home() {
                       whileTap={{ scale: 0.8, borderRadius: "5%" }}
                       fontWeight={merriweather.style.fontWeight}
                       color={"white"}
-                      size={{base: "md", md: "sm"}}
+                      size={{ base: "md", md: "sm" }}
                       bgColor={"black"}
                       _hover={{ bgColor: "gray.700" }}
                       onClick={() => router.push("/the-pivot/prologue")}
@@ -194,10 +202,14 @@ export default function Home() {
             </Flex>
             {/** Circle navigation */}
             <Flex width={"100%"} justify={"center"} as={"section"}>
-              <Circle size={"10px"} bg={"white"} />
+              <Circle size={"10px"} bg={{ base: "black", md: "white" }} />
             </Flex>
           </Flex>
         </Flex>
+
+        <Hide above="md">
+          <Divider />
+        </Hide>
 
         {/** Book Information / Sumamry */}
         <Flex
@@ -254,12 +266,16 @@ export default function Home() {
           </Flex>
         </Flex>
 
+        <Hide above="md">
+          <Divider />
+        </Hide>
+
         {/** Exercept Section */}
         <Flex
           id="excerpt"
           layerStyle="flexImageContainerFitContent"
           as={"section"}
-          bgImage={"/images/washington-1216630.jpg"}
+          bgImage={{ md: "/images/washington-1216630.jpg" }}
         >
           <Flex
             direction="column"
@@ -267,12 +283,14 @@ export default function Home() {
             pos="relative"
             w="100%"
             h="inherit"
-            bgColor="blackAlpha.600"
+            bgColor={{ base: "blackAlpha.100", md: "blackAlpha.600" }}
             py={{ base: 8, md: 32 }}
             ref={excerptRef}
             px={{ base: 4, md: 0 }}
           >
-            <Text textStyle={"h2"}>Excerpt</Text>
+            <Text textStyle={"h2"} textColor={{ base: "black", md: "white" }}>
+              Excerpt
+            </Text>
             <Flex
               as={motion.div}
               width={"100%"}
@@ -286,7 +304,10 @@ export default function Home() {
               whileInView={{ opacity: 1, transition: { duration: 1.25 } }}
               viewport={{ once: true }}
             >
-              <Text textStyle={"excerpt"}>
+              <Text
+                textStyle={"excerpt"}
+                textColor={{ base: "black", md: "white" }}
+              >
                 &ldquo;He looked down and saw his arms and legs surrounded by a
                 jet-black aura. The aura expanded exponentially until it
                 retracted to the center of his abdomen and sent a shockwave all
@@ -297,6 +318,13 @@ export default function Home() {
             </Flex>
           </Flex>
         </Flex>
+
+        <Hide above="md">
+          <Flex width={"100%"}>
+            <Divider />
+          </Flex>
+        </Hide>
+
         {/** Trigger Warnings */}
         <Flex
           py={{ base: 8, md: 32 }}
@@ -317,7 +345,7 @@ export default function Home() {
           >
             <HStack
               as={motion.div}
-              initial={{ opacity: 0, x: 300 }}
+              initial={{ opacity: 0, x: 100 }}
               whileInView={{ opacity: 1, x: 0, transition: { duration: 1.0 } }}
               viewport={{ once: true }}
               justify={"center"}
@@ -328,7 +356,7 @@ export default function Home() {
             </HStack>
             <HStack
               as={motion.div}
-              initial={{ opacity: 0, x: 300 }}
+              initial={{ opacity: 0, x: 100 }}
               whileInView={{ opacity: 1, x: 0, transition: { duration: 1.0 } }}
               viewport={{ once: true }}
               justify={"center"}
@@ -339,7 +367,7 @@ export default function Home() {
             </HStack>
             <HStack
               as={motion.div}
-              initial={{ opacity: 0, x: 300 }}
+              initial={{ opacity: 0, x: 100 }}
               whileInView={{ opacity: 1, x: 0, transition: { duration: 1.0 } }}
               viewport={{ once: true }}
               justify={"center"}
@@ -350,7 +378,7 @@ export default function Home() {
             </HStack>
             <HStack
               as={motion.div}
-              initial={{ opacity: 0, x: 300 }}
+              initial={{ opacity: 0, x: 100 }}
               whileInView={{ opacity: 1, x: 0, transition: { duration: 1.0 } }}
               viewport={{ once: true }}
               justify={"center"}
@@ -361,7 +389,7 @@ export default function Home() {
             </HStack>
             <HStack
               as={motion.div}
-              initial={{ opacity: 0, x: 300 }}
+              initial={{ opacity: 0, x: 50 }}
               whileInView={{ opacity: 1, x: 0, transition: { duration: 1.0 } }}
               viewport={{ once: true }}
               justify={"center"}
@@ -388,8 +416,11 @@ export default function Home() {
               <Text
                 mt={4}
                 fontFamily={merriweather.style.fontFamily}
-                fontSize={'md'}
-              >Successfully joined the newsletter! Be on the look out for updates soon.</Text>
+                fontSize={"md"}
+              >
+                Successfully joined the newsletter! Be on the look out for
+                updates soon.
+              </Text>
             ) : (
               <>
                 <FormControl isInvalid={email.isError}>

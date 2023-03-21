@@ -1,6 +1,5 @@
 import {
-  Center,
-  Container,
+  Box,
   Divider,
   Drawer,
   DrawerBody,
@@ -23,7 +22,7 @@ type MenuDrawerProps = {
 
 /**
  * MenuDrawer to display the menu for mobile and tablet visitors
- * 
+ *
  * @param param0 MenuDrawer props
  * @returns MenuDrawer component
  */
@@ -43,23 +42,122 @@ export default function MenuDrawer({ isOpen, onClose }: MenuDrawerProps) {
             align={"center"}
             gap={8}
           >
-            <Divider w={"70%"} />
+            <Divider
+              w={"70%"}
+              as={motion.hr}
+              initial={{ opacity: 0, x: 100 }}
+              animate={{
+                opacity: 1,
+                x: 0,
+                transition: { duration: 0.75 },
+              }}
+              borderColor={"gray.400"}
+            />
             <Link as={NextLink} href={"/"} onClick={onClose}>
-              <Text fontSize={"xl"}>HOME</Text>
+              <Box
+                as={motion.div}
+                initial={{ opacity: 0, x: 100 }}
+                animate={{
+                  opacity: 1,
+                  x: 0,
+                  transition: { duration: 0.75 },
+                }}
+              >
+                <Text fontSize={"xl"}>HOME</Text>
+              </Box>
             </Link>
-            <Divider w={"70%"} />
-            <Link as={NextLink} passHref href="/the-pivot/prologue" onClick={onClose}>
-              <Text fontSize={"xl"}>THE PIVOT - PROLOGUE</Text>
-            </Link>
-            <Divider w={"70%"} />
-            <Link as={NextLink} passHref href="/about" onClick={onClose}>
-              <Text fontSize={"xl"}>ABOUT</Text>
-            </Link>
-            <Divider w={"70%"} />
-            <Link as={NextLink} passHref href="/contact" onClick={onClose}>
-              <Text fontSize={"xl"}>CONTACT</Text>
-            </Link>
-            <Divider w={"70%"} />
+
+            <Divider
+              w={"70%"}
+              as={motion.hr}
+              initial={{ opacity: 0, x: 100 }}
+              animate={{
+                opacity: 1,
+                x: 0,
+                transition: { duration: 0.75 },
+              }}
+              borderColor={"gray.400"}
+            />
+            <Box
+              as={motion.div}
+              initial={{ opacity: 0, x: 100 }}
+              animate={{
+                opacity: 1,
+                x: 0,
+                transition: { duration: 0.75, delay: 0.25 },
+              }}
+            >
+              <Link
+                as={NextLink}
+                passHref
+                href="/the-pivot/prologue"
+                onClick={onClose}
+              >
+                <Text fontSize={"xl"}>THE PIVOT - PROLOGUE</Text>
+              </Link>
+            </Box>
+
+            <Divider
+              as={motion.hr}
+              initial={{ opacity: 0, x: 100 }}
+              animate={{
+                opacity: 1,
+                x: 0,
+                transition: { duration: 0.75, delay: 0.25 },
+              }}
+              w={"70%"}
+              borderColor={"gray.400"}
+            />
+            <Box
+              as={motion.div}
+              initial={{ opacity: 0, x: 100 }}
+              animate={{
+                opacity: 1,
+                x: 0,
+                transition: { duration: 0.75, delay: 0.5 },
+              }}
+            >
+              <Link as={NextLink} passHref href="/about" onClick={onClose}>
+                <Text fontSize={"xl"}>ABOUT</Text>
+              </Link>
+            </Box>
+
+            <Divider
+              as={motion.hr}
+              initial={{ opacity: 0, x: 100 }}
+              animate={{
+                opacity: 1,
+                x: 0,
+                transition: { duration: 0.75, delay: 0.5 },
+              }}
+              w={"70%"}
+              borderColor={"gray.400"}
+            />
+            <Box
+              as={motion.div}
+              initial={{ opacity: 0, x: 100 }}
+              animate={{
+                opacity: 1,
+                x: 0,
+                transition: { duration: 0.75, delay: 0.75 },
+              }}
+            >
+              <Link as={NextLink} passHref href="/contact" onClick={onClose}>
+                <Text fontSize={"xl"}>CONTACT</Text>
+              </Link>
+            </Box>
+
+            <Divider
+              as={motion.hr}
+              initial={{ opacity: 0, x: 100 }}
+              animate={{
+                opacity: 1,
+                x: 0,
+                transition: { duration: 0.75, delay: 0.75 },
+              }}
+              w={"70%"}
+              borderColor={"gray.400"}
+            />
           </Flex>
         </DrawerBody>
       </DrawerContent>
