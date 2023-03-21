@@ -150,7 +150,7 @@ export default function ContactPage() {
       <HeadComponent title="Contact | Frederick Asamoah Jr" />
       <Box as="main" height={"100%"}>
         <Flex width={"100%"} direction={"column"}>
-          <Header />
+          <Header textColor={'black'} />
           <Flex w={"100%"} direction={"column"} py={{ base: 8, md: 32 }}>
             <Text textStyle={"h2"} mb={8}>
               Contact Me

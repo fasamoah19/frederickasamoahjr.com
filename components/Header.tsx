@@ -40,19 +40,19 @@ export default function Header({...props}) {
               <Link as={NextLink} passHref href={"/"}>
                 <TextWithUnderlineHoverComponent
                   text={"home"}
-                  underlineColor={props.textColor}
+                  underlineColor={props.textColor?.md ?? props.textColor}
                 />
               </Link>
               <Link as={NextLink} passHref href={"/about"}>
                 <TextWithUnderlineHoverComponent
                   text={"about"}
-                  underlineColor={props.textColor}
+                  underlineColor={props.textColor?.md ?? props.textColor}
                 />
               </Link>
               <Link as={NextLink} passHref href={"/contact"}>
                 <TextWithUnderlineHoverComponent
                   text={"contact"}
-                  underlineColor={props.textColor}
+                  underlineColor={props.textColor?.md ?? props.textColor}
                 />
               </Link>
             </Show>
