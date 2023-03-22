@@ -35,7 +35,7 @@ export default function ProloguePage() {
           <Flex width={"100%"} justify={"center"} mb={8}>
             <Icon as={GiFireSilhouette} boxSize={5} />
           </Flex>
-          <Text mb={8} textAlign={'center'} fontSize={10}>This prologue is a work in progress and is subject to change.</Text>
+          <Text mb={8} px={1} textAlign={'center'} fontSize={10}>This prologue is a work in progress and is subject to change.</Text>
           {/** Prologue */}
           <Flex
             width={"100%"}
