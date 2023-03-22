@@ -7,8 +7,6 @@ type HeadProps = {
 
 /** Head Component containing metadata for the website */
 export default function HeadComponent({ title, description }: HeadProps) {
-  const stuff =
-    "Author website of Fred Asamoah Jr, the author of Sci-Fi / Fantasy novel: The Pivot";
   return (
     <Head>
       <title>{title}</title>
