@@ -37,6 +37,10 @@ export default function ContactPage() {
     contactMeDefaultValues
   );
 
+  // Description of the page used for the header
+  const headerDescription = "Contact Fred Asamoah Jr";
+
+
   // Variable to launch a toast for a successful request or an unsuccessful request
   const toast = useToast();
 
@@ -147,7 +151,7 @@ export default function ContactPage() {
 
   return (
     <>
-      <HeadComponent title="Contact | Frederick Asamoah Jr" />
+      <HeadComponent title="Contact | Fred Asamoah Jr" description={headerDescription} />
       <Box as="main" height={"100%"}>
         <Flex width={"100%"} direction={"column"}>
           <Header textColor={'black'} />

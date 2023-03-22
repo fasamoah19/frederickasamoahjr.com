@@ -19,7 +19,6 @@ import {
   FormLabel,
   FormErrorMessage,
   Divider,
-  Show,
   Hide,
 } from "@chakra-ui/react";
 import { useRef, useState } from "react";
@@ -40,10 +39,16 @@ import {
  * @returns Home Page component
  */
 export default function Home() {
+  // Reference for the synopsis section
   const synopsisRef = useRef<HTMLInputElement>(null);
+  // Reference for the excerpt section
   const excerptRef = useRef<HTMLInputElement>(null);
+  // Router for page navigation
   const router = useRouter();
+  // Description of the page used for the header
+  const headerDescription = "Author website of Fred Asamoah Jr, the author of Sci-Fi / Fantasy novel: The Pivot";
 
+  // State used for adding a user to the mailing list
   const [email, setEmail] = useState<EmailObject>({
     emailAddress: "",
     isError: false,
@@ -51,8 +56,10 @@ export default function Home() {
     submittedSuccessfully: false,
   });
 
+  // State used to open and close the beta sign up drawer
   const { isOpen, onOpen, onClose } = useDisclosure();
 
+  // Function for scrolling to a section on the web page.
   const scrollToSectionAfterExpanded = (option: "EXCERPT" | "SYNOPSIS") => {
     if (option == "SYNOPSIS") {
       synopsisRef.current?.scrollIntoView({
@@ -70,7 +77,7 @@ export default function Home() {
   return (
     <>
       <BetaReadSignUpDrawer isOpen={isOpen} onClose={onClose} />
-      <HeadComponent title="Home | Fred Asamoah Jr" />
+      <HeadComponent title="Home | Fred Asamoah Jr" description={headerDescription} />
       <Box bgColor={"white"}>
         <Flex
           bgImage={{ base: "", md: "/images/image-manipulation-3442184.jpg" }}

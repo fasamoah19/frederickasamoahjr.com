@@ -1,13 +1,25 @@
 import Head from "next/head";
 
+type HeadProps = {
+  title: string;
+  description: string;
+};
+
 /** Head Component containing metadata for the website */
-export default function HeadComponent({title}: {title: string}) {
+export default function HeadComponent({ title, description }: HeadProps) {
+  const stuff =
+    "Author website of Fred Asamoah Jr, the author of Sci-Fi / Fantasy novel: The Pivot";
   return (
     <Head>
-        <title>{title}</title>
-        <meta name="description" content="Author website of Fred Asamoah Jr, the author of The Pivot" />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <link rel="icon" href="/favicon.ico" />
+      <title>{title}</title>
+      <meta name="description" content={`${description}`} />
+      <meta name="viewport" content="width=device-width, initial-scale=1" />
+      <link rel="icon" href="/favicon.ico" />
+      <meta name="twitter:card" content="summary" />
+      <meta name="twitter:title" content={title} />
+      <meta name="twitter:description" content={description} />
+      <meta property="og:description" content={description} />
+      <meta property="og:title" content={title} />
     </Head>
-  )
+  );
 }
