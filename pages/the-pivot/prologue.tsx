@@ -14,10 +14,13 @@ import { GiFireSilhouette } from "react-icons/gi";
 export default function ProloguePage() {
   const { isOpen, onOpen, onClose } = useDisclosure();
 
+    // Description of the page used for the header
+    const headerDescription = "The Pivot - Prologue. Daniel was struggling. He was using every ounce of energy he had to make it to the woods";
+
   return (
     <>
       <BetaReadSignUpDrawer isOpen={isOpen} onClose={onClose} />
-      <HeadComponent title="The Pivot - Prologue | Fred Asamoah Jr" />
+      <HeadComponent title="The Pivot - Prologue | Fred Asamoah Jr" description={headerDescription} />
       <Box as="main" bgColor={"#FBF6E9"}>
         <Header textColor="black" />
         <Flex
@@ -32,6 +35,7 @@ export default function ProloguePage() {
           <Flex width={"100%"} justify={"center"} mb={8}>
             <Icon as={GiFireSilhouette} boxSize={5} />
           </Flex>
+          <Text mb={8} textAlign={'center'} fontSize={10}>This prologue is a work in progress and is subject to change.</Text>
           {/** Prologue */}
           <Flex
             width={"100%"}
