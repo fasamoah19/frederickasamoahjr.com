@@ -65,24 +65,21 @@ export default function AboutPage() {
 
             {/** About me text */}
             <Text textStyle={"paragraph"}>
-              Ever since Fred Asamoah Jr was a child, he loved to create
-              stories. Whether those stories stemmed from playing with his toys,
-              writing poetry, or in video games he played where he had no clue
-              what was going on--causing him to make up a story of his own. That
-              urge to create led him to write the Sci-Fi / Fantasy novel A
-              Trinity Bound by Fate: The Pivot.
+              Ever since Fred Asamoah Jr was a child, he has loved to create
+              stories. Growing up, his love for storytelling was cultivated
+              through poetry and his penchant for creating backstories for his
+              favorite toys and video game characters. That urge to create has
+              led him to write his first book, in the fantasy series <strong><i>The
+              Pivot</i></strong>.
               <br />
               <br />
-              Fred&apos;s desire to create guided him to become a software
-              developer where he creates applications and programs for a living
-              (for now). It also led him pick up the bass guitar, to produce
-              sounds and melodies that came to him.
-              <br />
-              <br />
-              If he&apos;s not doing anything mentioned above (he&apos;s too old
-              for toys now), he&apos;s watching anime (probably Cowboy Bebop for
-              the millionth time), playing his Playstation or listening to
-              music.
+              That same urge led Fred to become a software developer, where he
+              gets to creat applications and programs for a living. In his free
+              time he enjoys playing the bass guitar to produce sounds and
+              melodies that come to him. If he&apos;s not doing anything
+              mentioned above (he&apos;s too old for toys now), he&apos;s
+              watching anime (probably Cowboy Bebop for the millionth time),
+              playing his Playstation or listening to music.
             </Text>
           </Flex>
         </Flex>
