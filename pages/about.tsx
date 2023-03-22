@@ -27,6 +27,7 @@ import Header from "../components/Header";
  * @returns AboutPage component
  */
 export default function AboutPage() {
+  // State used for adding a user to the mailing list
   const [email, setEmail] = useState<EmailObject>({
     emailAddress: "",
     isError: false,
@@ -34,9 +35,12 @@ export default function AboutPage() {
     submittedSuccessfully: false,
   });
 
+  // Description of the page used for the header
+  const headerDescription = "About Fred Asamoah Jr. Ever since Fred Asamoah Jr was a child, he has loved to create stories. Growing up...";
+
   return (
     <>
-      <HeadComponent title="About | Fred Asamoah Jr" />
+      <HeadComponent title="About | Fred Asamoah Jr" description={headerDescription} />
       <Box as="main" height={"100%"}>
         <Flex width={"100%"} direction={"column"}>
           <Header textColor="black" />
@@ -69,8 +73,11 @@ export default function AboutPage() {
               stories. Growing up, his love for storytelling was cultivated
               through poetry and his penchant for creating backstories for his
               favorite toys and video game characters. That urge to create has
-              led him to write his first book, in the fantasy series <strong><i>The
-              Pivot</i></strong>.
+              led him to write his first book, in the fantasy series{" "}
+              <strong>
+                <i>The Pivot</i>
+              </strong>
+              .
               <br />
               <br />
               That same urge led Fred to become a software developer, where he
