@@ -98,6 +98,7 @@ export default function AboutPage() {
           align={"center"}
           direction={"column"}
           bgColor={"blackAlpha.100"}
+          px={{ base: 4 }}
         >
           <Text textStyle={"h2"}>Sign Up For My Newsletter</Text>
           <Flex align={"end"} direction={"row"}>
