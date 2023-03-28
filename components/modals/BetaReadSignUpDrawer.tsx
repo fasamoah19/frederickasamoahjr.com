@@ -108,7 +108,7 @@ export default function BetaReadSignUpDrawer({
       const response = await fetch("/api/beta-read-request", {
         method: "POST",
         headers: {
-          "Content-Type": "application/json"
+          "Content-Type": "application/json",
         },
         body: JSON.stringify({
           name: state.name,
@@ -152,18 +152,26 @@ export default function BetaReadSignUpDrawer({
             <Text as={"span"} fontWeight={"bold"}>
               Friday May 12th, 2023
             </Text>
+            . The manuscript will be sent out on{" "}
+            <Text as={"span"} fontWeight={"bold"}>
+              April 3rd, 2023
+            </Text>
             . Please{" "}
             <Link
               as={NextLink}
               href={"/the-pivot/prologue"}
               target={"_blank"}
               textDecoration={"underline"}
-              fontWeight={'bold'}
+              fontWeight={"bold"}
             >
-               read the prologue
+              read the prologue
             </Link>{" "}
             found here before signing up to ensure you like the writing style of
             Fred Asamoah Jr first.
+          </Text>
+          <br />
+          <Text fontSize={"sm"} fontWeight={"bold"} textDecoration={'underline'}>
+            The last day to sign up is March 31st, 2023.
           </Text>
           <br />
           <Text fontSize={"sm"} fontWeight={"bold"}>
@@ -182,6 +190,7 @@ export default function BetaReadSignUpDrawer({
             >
               <strong>email me</strong>
             </Link>
+            .
           </Text>
 
           <form
@@ -259,8 +268,13 @@ export default function BetaReadSignUpDrawer({
               {/** Trigger warnings */}
               <FormControl mt={8} isRequired>
                 <FormLabel fontSize={"sm"}>
-                  By checking this box, you agree that you have read through the
-                  trigger warnings found here
+                  By checking this box, you are aware the content trigger
+                  warnings for this book are:{" "}
+                  <strong>
+                    violence/death (on and off page), discussion of mental
+                    health and past trauma, harm to children, and mentions of
+                    Christianity.
+                  </strong>
                 </FormLabel>
                 <CheckboxGroup
                   value={state.triggerAck}

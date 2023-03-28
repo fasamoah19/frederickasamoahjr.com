@@ -46,7 +46,8 @@ export default function Home() {
   // Router for page navigation
   const router = useRouter();
   // Description of the page used for the header
-  const headerDescription = "Author website of Fred Asamoah Jr, the author of Sci-Fi / Fantasy novel: The Pivot";
+  const headerDescription =
+    "Author website of Fred Asamoah Jr, the author of Sci-Fi / Fantasy novel: The Pivot";
 
   // State used for adding a user to the mailing list
   const [email, setEmail] = useState<EmailObject>({
@@ -77,7 +78,10 @@ export default function Home() {
   return (
     <>
       <BetaReadSignUpDrawer isOpen={isOpen} onClose={onClose} />
-      <HeadComponent title="Home | Fred Asamoah Jr" description={headerDescription} />
+      <HeadComponent
+        title="Home | Fred Asamoah Jr"
+        description={headerDescription}
+      />
       <Box bgColor={"white"}>
         <Flex
           bgImage={{ base: "", md: "/images/image-manipulation-3442184.jpg" }}
@@ -359,7 +363,7 @@ export default function Home() {
               align={"center"}
             >
               <Icon as={GiFireSilhouette} boxSize={5} />
-              <Text fontSize={18}>Violence</Text>
+              <Text fontSize={18}>Violence/death (on and off page)</Text>
             </HStack>
             <HStack
               as={motion.div}
@@ -370,7 +374,9 @@ export default function Home() {
               align={"center"}
             >
               <Icon as={GiFireSilhouette} boxSize={5} />
-              <Text fontSize={18}>Mental Health</Text>
+              <Text fontSize={18}>
+                Discussion of mental health and past trauma
+              </Text>
             </HStack>
             <HStack
               as={motion.div}
@@ -385,17 +391,6 @@ export default function Home() {
             </HStack>
             <HStack
               as={motion.div}
-              initial={{ opacity: 0, x: 100 }}
-              whileInView={{ opacity: 1, x: 0, transition: { duration: 1.0 } }}
-              viewport={{ once: true }}
-              justify={"center"}
-              align={"center"}
-            >
-              <Icon as={GiFireSilhouette} boxSize={5} />
-              <Text fontSize={18}>Therapy</Text>
-            </HStack>
-            <HStack
-              as={motion.div}
               initial={{ opacity: 0, x: 50 }}
               whileInView={{ opacity: 1, x: 0, transition: { duration: 1.0 } }}
               viewport={{ once: true }}
@@ -403,12 +398,13 @@ export default function Home() {
               align={"center"}
             >
               <Icon as={GiFireSilhouette} boxSize={5} />
-              <Text fontSize={18}>Religion</Text>
+              <Text fontSize={18}>Mentions of Christianity</Text>
             </HStack>
           </SimpleGrid>
         </Flex>
         <Divider h={2} />
-        {/** Newletter Sign Up*/}
+        
+        {/** Become a Beta Reader*/}
         <Flex
           py={{ base: 8, md: 16 }}
           width={"100%"}
@@ -416,6 +412,56 @@ export default function Home() {
           align={"center"}
           direction={"column"}
           bgColor={"blackAlpha.100"}
+          px={{ base: 4 }}
+        >
+          <Text textStyle={"h2"}>Become a Beta Reader</Text>
+          <ButtonGroup
+            gap={4}
+            flexDirection={{ base: "column", md: "row" }}
+            spacing={0}
+          >
+            <Button
+              as={motion.button}
+              whileHover={{
+                scale: 0.9,
+                transition: { duration: 0.1 },
+              }}
+              whileTap={{ scale: 0.8, borderRadius: "5%" }}
+              fontWeight={merriweather.style.fontWeight}
+              color={"white"}
+              size={{ base: "md", md: "sm" }}
+              bgColor={"black"}
+              _hover={{ bgColor: "gray.700" }}
+              onClick={onOpen}
+            >
+              SIGN UP TO BETA READ
+            </Button>
+            <Button
+              as={motion.button}
+              whileHover={{
+                scale: 0.9,
+                transition: { duration: 0.1 },
+              }}
+              whileTap={{ scale: 0.8, borderRadius: "5%" }}
+              fontWeight={merriweather.style.fontWeight}
+              color={"white"}
+              size={{ base: "md", md: "sm" }}
+              bgColor={"black"}
+              _hover={{ bgColor: "gray.700" }}
+              onClick={() => router.push("/the-pivot/prologue")}
+            >
+              READ THE PROLOGUE
+            </Button>
+          </ButtonGroup>
+        </Flex>
+
+        {/** Newletter Sign Up*/}
+        <Flex
+          py={{ base: 8, md: 16 }}
+          width={"100%"}
+          justify={"center"}
+          align={"center"}
+          direction={"column"}
           px={{ base: 4 }}
         >
           <Text textStyle={"h2"}>Sign Up For My Newsletter</Text>
@@ -436,7 +482,7 @@ export default function Home() {
                   <HStack gap={6}>
                     <Input
                       type={"text"}
-                      variant={"solid"}
+                      variant={"filled"}
                       required
                       value={email.emailAddress}
                       fontSize={"md"}
