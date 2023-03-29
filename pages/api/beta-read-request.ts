@@ -15,7 +15,7 @@ export default async function handler(
 ) {
   const { method, body: { name, email, socialMedia } } = req
 
-  if (name && email && socialMedia && method === "POST") {
+  if (name && email && method === "POST") {
     await fetch(process.env.SHEET_BEST_API_URL!, {
       method: "POST",
       mode: 'cors',
