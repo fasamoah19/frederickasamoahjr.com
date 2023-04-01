@@ -43,6 +43,8 @@ export default function Home() {
   const synopsisRef = useRef<HTMLInputElement>(null);
   // Reference for the excerpt section
   const excerptRef = useRef<HTMLInputElement>(null);
+  // Reference for the Newsletter
+  const newsletterRef = useRef<HTMLInputElement>(null);
   // Router for page navigation
   const router = useRouter();
   // Description of the page used for the header
@@ -61,9 +63,16 @@ export default function Home() {
   const { isOpen, onOpen, onClose } = useDisclosure();
 
   // Function for scrolling to a section on the web page.
-  const scrollToSectionAfterExpanded = (option: "EXCERPT" | "SYNOPSIS") => {
+  const scrollToSection = (
+    option: "EXCERPT" | "SYNOPSIS" | "NEWSLETTER"
+  ) => {
     if (option == "SYNOPSIS") {
       synopsisRef.current?.scrollIntoView({
+        behavior: "smooth",
+        block: "start",
+      });
+    } else if (option == "NEWSLETTER") {
+      newsletterRef.current?.scrollIntoView({
         behavior: "smooth",
         block: "start",
       });
@@ -77,7 +86,6 @@ export default function Home() {
 
   return (
     <>
-      <BetaReadSignUpDrawer isOpen={isOpen} onClose={onClose} />
       <HeadComponent
         title="Home | Fred Asamoah Jr"
         description={headerDescription}
@@ -122,7 +130,7 @@ export default function Home() {
                 alt={"Book cover placeholder"}
                 height={{ base: "full", md: 500 }}
                 width={{ base: "full", md: 340 }}
-                onClick={() => scrollToSectionAfterExpanded("SYNOPSIS")}
+                onClick={() => scrollToSection("SYNOPSIS")}
                 _hover={{ cursor: "pointer" }}
               />
 
@@ -169,7 +177,7 @@ export default function Home() {
                     </Tag>
                   </HStack>
 
-                  {/** Sign Up to Beta Read */}
+                  {/** Button Groups */}
                   <ButtonGroup
                     gap={4}
                     flexDirection={{ base: "column", md: "row" }}
@@ -187,9 +195,9 @@ export default function Home() {
                       size={{ base: "md", md: "sm" }}
                       bgColor={"black"}
                       _hover={{ bgColor: "gray.700" }}
-                      onClick={onOpen}
+                      onClick={() => router.push("/the-pivot/prologue")}
                     >
-                      SIGN UP TO BETA READ
+                      READ THE PROLOGUE
                     </Button>
                     <Button
                       as={motion.button}
@@ -203,9 +211,9 @@ export default function Home() {
                       size={{ base: "md", md: "sm" }}
                       bgColor={"black"}
                       _hover={{ bgColor: "gray.700" }}
-                      onClick={() => router.push("/the-pivot/prologue")}
+                      onClick={() => scrollToSection("NEWSLETTER")}
                     >
-                      READ THE PROLOGUE
+                      SUBSCRIBE FOR UPDATES
                     </Button>
                   </ButtonGroup>
                 </VStack>
@@ -403,8 +411,8 @@ export default function Home() {
           </SimpleGrid>
         </Flex>
         <Divider h={2} />
-        
-        {/** Become a Beta Reader*/}
+
+        {/** Read The Prologue */}
         <Flex
           py={{ base: 8, md: 16 }}
           width={"100%"}
@@ -414,28 +422,12 @@ export default function Home() {
           bgColor={"blackAlpha.100"}
           px={{ base: 4 }}
         >
-          <Text textStyle={"h2"}>Become a Beta Reader</Text>
+          <Text textStyle={"h2"}>The Pivot: Prologue</Text>
           <ButtonGroup
             gap={4}
             flexDirection={{ base: "column", md: "row" }}
             spacing={0}
           >
-            <Button
-              as={motion.button}
-              whileHover={{
-                scale: 0.9,
-                transition: { duration: 0.1 },
-              }}
-              whileTap={{ scale: 0.8, borderRadius: "5%" }}
-              fontWeight={merriweather.style.fontWeight}
-              color={"white"}
-              size={{ base: "md", md: "sm" }}
-              bgColor={"black"}
-              _hover={{ bgColor: "gray.700" }}
-              onClick={onOpen}
-            >
-              SIGN UP TO BETA READ
-            </Button>
             <Button
               as={motion.button}
               whileHover={{
@@ -463,6 +455,7 @@ export default function Home() {
           align={"center"}
           direction={"column"}
           px={{ base: 4 }}
+          ref={newsletterRef}
         >
           <Text textStyle={"h2"}>Sign Up For My Newsletter</Text>
           <Flex align={"end"} direction={"row"}>
