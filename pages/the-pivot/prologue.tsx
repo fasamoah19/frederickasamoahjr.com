@@ -5,6 +5,7 @@ import { merriweather } from "@/fonts/merriweather";
 import { Box, Button, Flex, Icon, Text, useDisclosure } from "@chakra-ui/react";
 import { motion } from "framer-motion";
 import { GiFireSilhouette } from "react-icons/gi";
+import { useRouter } from "next/router";
 
 /**
  * This page displays the Prologue of The Pivot
@@ -12,14 +13,13 @@ import { GiFireSilhouette } from "react-icons/gi";
  * @returns ProloguePage component
  */
 export default function ProloguePage() {
-  const { isOpen, onOpen, onClose } = useDisclosure();
+  const router = useRouter();
 
     // Description of the page used for the header
     const headerDescription = "The Pivot - Prologue. Daniel was struggling. He was using every ounce of energy he had to make it to the woods";
 
   return (
     <>
-      <BetaReadSignUpDrawer isOpen={isOpen} onClose={onClose} />
       <HeadComponent title="The Pivot - Prologue | Fred Asamoah Jr" description={headerDescription} />
       <Box as="main" bgColor={"#FBF6E9"}>
         <Header textColor="black" />
@@ -160,7 +160,7 @@ export default function ProloguePage() {
           <Flex width={"100%"} justify={"center"} my={8}>
             <Icon as={GiFireSilhouette} boxSize={5} />
           </Flex>
-          {/** Sign Up To Beta Read Button */}
+          {/** Go home */}
           <Flex width={"100%"} justify={"center"}>
             <Button
               as={motion.button}
@@ -171,9 +171,9 @@ export default function ProloguePage() {
               size={"md"}
               bgColor={"black"}
               _hover={{ bgColor: "gray.700" }}
-              onClick={onOpen}
+              onClick={() => router.push("/")}
             >
-              SIGN UP TO BETA READ
+              HOME
             </Button>
           </Flex>
         </Flex>
