@@ -81,7 +81,7 @@ export default function AboutPage() {
               <br />
               <br />
               That same urge led Fred to become a software developer, where he
-              gets to creat applications and programs for a living. In his free
+              gets to create applications and programs for a living. In his free
               time he enjoys playing the bass guitar to produce sounds and
               melodies that come to him. If he&apos;s not doing anything
               mentioned above (he&apos;s too old for toys now), he&apos;s
