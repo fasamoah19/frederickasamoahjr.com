@@ -1,5 +1,6 @@
 import { Box } from "@chakra-ui/react";
 import Footer from "./Footer";
+import { SpeedInsights } from "@vercel/speed-insights/next"
 
 /**
  * Props that the Layout component receives
@@ -17,6 +18,7 @@ export default function Layout({ children }: LayoutProps) {
     <>
       <Box>{children}</Box>
       <Footer />
+      <SpeedInsights />
     </>
   );
 }
