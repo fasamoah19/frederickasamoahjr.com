@@ -131,7 +131,7 @@ export default function Home() {
                 _hover={{ cursor: "pointer" }}
               />
 
-              <Box w={{ base: 0, md: 20 }} />
+              <Box w={{ base: 0, md: 12 }} />
               <Flex
                 direction={"column"}
                 w={{ base: "100%", md: "fit-content" }}
@@ -150,22 +150,29 @@ export default function Home() {
                   spacing={6}
                   align={{ md: "start" }}
                 >
-                  <Text textStyle={"h2Caption"} maxW={"400px"} color={"black"}>
-                    Book One in the Trinity Bound by Fate Series
-                  </Text>
+                  <HStack justify={"center"}>
+                    <Text
+                      textStyle={"h2Caption"}
+                      maxW={"400px"}
+                      color={"black"}
+                    >
+                      Book One in the Trinity Bound by Fate Series
+                    </Text>
+                  </HStack>
+
                   <HStack spacing={4} justify={"center"}>
                     <Tag
                       boxShadow={"md"}
-                      size={"md"}
+                      size={{ base: "sm", lg: "md" }}
                       variant="subtle"
                       colorScheme="gray"
                       fontStyle={merriweather.style.fontFamily}
                     >
-                      Contemporary Fantasy
+                      Sci-Fi / Contemporary Fantasy
                     </Tag>
                     <Tag
                       boxShadow={"md"}
-                      size={"md"}
+                      size={{ base: "sm", lg: "md" }}
                       variant="subtle"
                       colorScheme="gray"
                       fontStyle={merriweather.style.fontFamily}
@@ -215,7 +222,7 @@ export default function Home() {
         <Flex
           as={motion.section}
           id={"book-summary"}
-          bgColor={"white"}
+          bgColor={{ base: "blackAlpha.100", md: "white" }}
           ref={synopsisRef}
           py={{ base: 8, md: 32 }}
           width={"100%"}
@@ -239,6 +246,7 @@ export default function Home() {
               mt={4}
               fontFamily={merriweather.style.fontFamily}
               fontSize={{ base: "md", md: "lg" }}
+              lineHeight={10}
               textAlign={{ base: "center", md: "justify" }}
             >
               Freshly graduated with a psychology degree, Daniel Ansah struggles
@@ -263,8 +271,8 @@ export default function Home() {
               a hard task for him as side-effects of his abilities begin to
               manifest out of his control. His secrecy places the entire village
               at risk not only because he can inadvertently kill them all, but
-              also because his presence re-awakens an old foe of their village's
-              leader.
+              also because his presence re-awakens an old foe of their
+              village&apos;s leader.
               <br />
               <br />
               Weighed with guilt and fear, Daniel must learn to forgive and
@@ -291,7 +299,7 @@ export default function Home() {
             pos="relative"
             w="100%"
             h="inherit"
-            bgColor={{ base: "blackAlpha.100", md: "blackAlpha.600" }}
+            bgColor={{ base: "white", md: "blackAlpha.600" }}
             py={{ base: 8, md: 32 }}
             ref={excerptRef}
             px={{ base: 4, md: 0 }}
@@ -323,10 +331,10 @@ export default function Home() {
                 eyes to see the vehicle flying into a building. Windows
                 shattered from the impact. He looked down and saw his arms and
                 legs surrounded by an erratic black aura. The aura retracted to
-                Daniel&apos;s chest before releasing a shockwave around the entire
-                area. Its sheer force sent vehicles crashing into properties and
-                flung pedestrians into poles and walls for them to land on
-                clumps of shimmering concrete.&rdquo;
+                Daniel&apos;s chest before releasing a shockwave around the
+                entire area. Its sheer force sent vehicles crashing into
+                properties and flung pedestrians into poles and walls for them
+                to land on clumps of shimmering concrete.&rdquo;
               </Text>
             </Flex>
           </Flex>
