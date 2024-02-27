@@ -51,23 +51,7 @@ export default function Footer() {
             <Link
               as={NextLink}
               passHref
-              href="https://www.tiktok.com/@fred_asamoah_jr_write?is_from_webapp=1&sender_device=pc"
-              target={"_blank"}
-            >
-              <Icon
-                as={IoLogoTiktok}
-                boxSize={4}
-                pos="relative"
-                top={0}
-                transition="top 0.25s ease"
-                _hover={{ top: -2 }}
-              />
-            </Link>
-
-            <Link
-              as={NextLink}
-              passHref
-              href={"https://www.instagram.com/fred_asamoah_jr_write/"}
+              href={"https://www.instagram.com/fred.asamoah.jr/"}
               target={"_blank"}
             >
               <Icon
@@ -121,23 +105,7 @@ export default function Footer() {
             <Link
               as={NextLink}
               passHref
-              href="https://www.tiktok.com/@fred_asamoah_jr_write?is_from_webapp=1&sender_device=pc"
-              target={"_blank"}
-            >
-              <Icon
-                as={IoLogoTiktok}
-                boxSize={4}
-                pos="relative"
-                top={0}
-                transition="top 0.25s ease"
-                _hover={{ top: -2 }}
-              />
-            </Link>
-
-            <Link
-              as={NextLink}
-              passHref
-              href={"https://www.instagram.com/fred_asamoah_jr_write/"}
+              href={"https://www.instagram.com/fred.asamoah.jr/"}
               target={"_blank"}
             >
               <Icon

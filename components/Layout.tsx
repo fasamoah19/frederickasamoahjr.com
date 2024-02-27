@@ -1,7 +1,5 @@
-import { Box, useDisclosure } from "@chakra-ui/react";
-import BetaReadSignUpDrawer from "./modals/BetaReadSignUpDrawer";
+import { Box } from "@chakra-ui/react";
 import Footer from "./Footer";
-import Header from "./Header";
 
 /**
  * Props that the Layout component receives

@@ -68,36 +68,6 @@ export default function MenuDrawer({ isOpen, onClose }: MenuDrawerProps) {
             </Link>
 
             <Divider
-              w={"70%"}
-              as={motion.hr}
-              initial={{ opacity: 0, x: 100 }}
-              animate={{
-                opacity: 1,
-                x: 0,
-                transition: { duration: 0.75 },
-              }}
-              borderColor={"gray.400"}
-            />
-            <Box
-              as={motion.div}
-              initial={{ opacity: 0, x: 100 }}
-              animate={{
-                opacity: 1,
-                x: 0,
-                transition: { duration: 0.75, delay: 0.25 },
-              }}
-            >
-              <Link
-                as={NextLink}
-                passHref
-                href="/the-pivot/prologue"
-                onClick={onClose}
-              >
-                <Text fontSize={"xl"}>THE PIVOT - PROLOGUE</Text>
-              </Link>
-            </Box>
-
-            <Divider
               as={motion.hr}
               initial={{ opacity: 0, x: 100 }}
               animate={{
