@@ -36,11 +36,15 @@ export default function AboutPage() {
   });
 
   // Description of the page used for the header
-  const headerDescription = "About Fred Asamoah Jr. Ever since Fred Asamoah Jr was a child, he has loved to create stories. Growing up...";
+  const headerDescription =
+    "About Fred Asamoah Jr. Ever since Fred Asamoah Jr was a child, he's loved to create stories. Growing up...";
 
   return (
     <>
-      <HeadComponent title="About | Fred Asamoah Jr" description={headerDescription} />
+      <HeadComponent
+        title="About | Fred Asamoah Jr"
+        description={headerDescription}
+      />
       <Box as="main" height={"100%"}>
         <Flex width={"100%"} direction={"column"}>
           <Header textColor="black" />
@@ -69,24 +73,22 @@ export default function AboutPage() {
 
             {/** About me text */}
             <Text textStyle={"paragraph"}>
-              Ever since Fred Asamoah Jr was a child, he has loved to create
+              Ever since Fred Asamoah Jr was a child, he&apos;s loved to create
               stories. Growing up, his love for storytelling was cultivated
               through poetry and his penchant for creating backstories for his
               favorite toys and video game characters. That urge to create has
-              led him to write his first book, in the fantasy series{" "}
-              <strong>
-                <i>The Pivot</i>
-              </strong>
+              led him to write his first book, in the fantasy series:{" "}
+              <i>A Trinity Bound by Fate</i>, <strong>The Pivot</strong>
               .
               <br />
               <br />
               That same urge led Fred to become a software developer, where he
               gets to create applications and programs for a living. In his free
               time he enjoys playing the bass guitar to produce sounds and
-              melodies that come to him. If he&apos;s not doing anything
-              mentioned above (he&apos;s too old for toys now), he&apos;s
-              watching anime (probably Cowboy Bebop for the millionth time),
-              playing his Playstation or listening to music.
+              melodies that come to him. If he&apos;s not doing anything mentioned
+              above (he&apos;s too old for toys now), he&apos;s watching anime (probably
+              Cowboy Bebop for the millionth time), reading, playing his PlayStation or
+              listening to a broad range of music.
             </Text>
           </Flex>
         </Flex>

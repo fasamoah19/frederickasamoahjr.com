@@ -70,8 +70,8 @@ const theme = extendTheme({
       color: { base: 'white', md: 'black' }
     },
     paragraph: {
-      fontSize: { base: 'sm', md: 'md', xl: 'xl' }, // 18px
-      textAlign: 'justify'
+      fontSize: { base: 'sm', md: 'md', xl: 'lg' }, // 18px
+      textAlign: 'justify',
     },
     prologue: {
       fontSize: "md",
@@ -84,7 +84,7 @@ const theme = extendTheme({
       fontSize: 'lg' // 18px
     },
     excerpt: {
-      fontSize: 'lg', // 18px
+      fontSize: {base: "md", md: 'lg'}, // 18px
       fontWeight: 'medium',
       lineHeight: 10,
       textAlign: { base: 'center', md: 'justify' }

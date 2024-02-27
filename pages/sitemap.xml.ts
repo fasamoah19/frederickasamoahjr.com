@@ -15,9 +15,6 @@ function generateSiteMap() {
         <loc>https://www.fredasamoahjr.com/about</loc>
       </url>
       <url>
-        <loc>https://www.fredasamoahjr.com/the-pivot/prologue</loc>
-      </url>
-      <url>
         <loc>https://www.fredasamoahjr.com/contact</loc>
       </url>
    </urlset>

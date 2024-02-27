@@ -24,7 +24,6 @@ import {
 import { useRef, useState } from "react";
 import { motion } from "framer-motion";
 import { merriweather } from "@/fonts/merriweather";
-import BetaReadSignUpDrawer from "@/components/modals/BetaReadSignUpDrawer";
 import { GiFireSilhouette } from "react-icons/gi";
 import { useRouter } from "next/router";
 import {
@@ -63,9 +62,7 @@ export default function Home() {
   const { isOpen, onOpen, onClose } = useDisclosure();
 
   // Function for scrolling to a section on the web page.
-  const scrollToSection = (
-    option: "EXCERPT" | "SYNOPSIS" | "NEWSLETTER"
-  ) => {
+  const scrollToSection = (option: "EXCERPT" | "SYNOPSIS" | "NEWSLETTER") => {
     if (option == "SYNOPSIS") {
       synopsisRef.current?.scrollIntoView({
         behavior: "smooth",
@@ -134,7 +131,7 @@ export default function Home() {
                 _hover={{ cursor: "pointer" }}
               />
 
-              <Box w={{ base: 0, md: 20 }} />
+              <Box w={{ base: 0, md: 12 }} />
               <Flex
                 direction={"column"}
                 w={{ base: "100%", md: "fit-content" }}
@@ -153,22 +150,29 @@ export default function Home() {
                   spacing={6}
                   align={{ md: "start" }}
                 >
-                  <Text textStyle={"h2Caption"} maxW={"400px"} color={"black"}>
-                    Book One in the Trinity Bound by Fate Series
-                  </Text>
+                  <HStack justify={"center"}>
+                    <Text
+                      textStyle={"h2Caption"}
+                      maxW={"400px"}
+                      color={"black"}
+                    >
+                      Book One in the Trinity Bound by Fate Series
+                    </Text>
+                  </HStack>
+
                   <HStack spacing={4} justify={"center"}>
                     <Tag
                       boxShadow={"md"}
-                      size={"md"}
+                      size={{ base: "sm", lg: "md" }}
                       variant="subtle"
                       colorScheme="gray"
                       fontStyle={merriweather.style.fontFamily}
                     >
-                      Sci-Fi / Fantasy
+                      Sci-Fi / Contemporary Fantasy
                     </Tag>
                     <Tag
                       boxShadow={"md"}
-                      size={"md"}
+                      size={{ base: "sm", lg: "md" }}
                       variant="subtle"
                       colorScheme="gray"
                       fontStyle={merriweather.style.fontFamily}
@@ -183,22 +187,6 @@ export default function Home() {
                     flexDirection={{ base: "column", md: "row" }}
                     spacing={0}
                   >
-                    <Button
-                      as={motion.button}
-                      whileHover={{
-                        scale: 0.9,
-                        transition: { duration: 0.1 },
-                      }}
-                      whileTap={{ scale: 0.8, borderRadius: "5%" }}
-                      fontWeight={merriweather.style.fontWeight}
-                      color={"white"}
-                      size={{ base: "md", md: "sm" }}
-                      bgColor={"black"}
-                      _hover={{ bgColor: "gray.700" }}
-                      onClick={() => router.push("/the-pivot/prologue")}
-                    >
-                      READ THE PROLOGUE
-                    </Button>
                     <Button
                       as={motion.button}
                       whileHover={{
@@ -234,7 +222,7 @@ export default function Home() {
         <Flex
           as={motion.section}
           id={"book-summary"}
-          bgColor={"white"}
+          bgColor={{ base: "blackAlpha.100", md: "white" }}
           ref={synopsisRef}
           py={{ base: 8, md: 32 }}
           width={"100%"}
@@ -258,29 +246,38 @@ export default function Home() {
               mt={4}
               fontFamily={merriweather.style.fontFamily}
               fontSize={{ base: "md", md: "lg" }}
+              lineHeight={10}
               textAlign={{ base: "center", md: "justify" }}
             >
-              Daniel Ansah, a recent college graduate, is striving towards his
-              dream to become a mental health clinician. That dream is shattered
-              when he awakens a dark energy within. Every time it activates, he
-              leaves a trail of blood behind him.
+              Freshly graduated with a psychology degree, Daniel Ansah struggles
+              with a trait that has been fracturing relationships with his
+              friends and family&#8212;all without him knowing. He&apos;s quick
+              to lend an ear to someone&apos;s problems but even quicker to keep
+              people out of his. His life, which he&apos;s devoted to helping
+              others, is upended when a mysterious power awakens in him and
+              causes him to injure hundreds in his hometown of DC. Unfortunately
+              for him, a pattern forms. When that power is activated, a trail of
+              blood is left behind him.
               <br />
               <br />
               Labeled as a demon and a threat to the world, his family and
               friends shun him, while the U.S. government attempts to weaponize
-              him for global domination. Until the day of a heated chase, when
-              Daniel accidentally teleports himself to a foreign planet.
+              him for global domination. A heated chase leads Daniel into the
+              woods when he accidentally teleports himself to a foreign planet.
               <br />
               <br />
-              With nowhere to go, Daniel must learn to live amongst the locals
-              while plotting to keep his past hidden for as long as possible.
-              His decision places the entire village at risk not only because of
-              his uncontrolled powers, but also because his presence re-awakens
-              an old foe of their village&apos;s leader.
+              With nowhere to go, Daniel lives amongst the locals while plotting
+              to keep his past hidden for as long as possible. This proves to be
+              a hard task for him as side-effects of his abilities begin to
+              manifest out of his control. His secrecy places the entire village
+              at risk not only because he can inadvertently kill them all, but
+              also because his presence re-awakens an old foe of their
+              village&apos;s leader.
               <br />
               <br />
-              Will Daniel be able to pivot to realize his destiny? Or will he
-              leave a blood trail on this planet as well?
+              Weighed with guilt and fear, Daniel must learn to forgive and
+              trust again if he wants to prevent a massacre brought by his own
+              hands.
             </Text>
           </Flex>
         </Flex>
@@ -302,7 +299,7 @@ export default function Home() {
             pos="relative"
             w="100%"
             h="inherit"
-            bgColor={{ base: "blackAlpha.100", md: "blackAlpha.600" }}
+            bgColor={{ base: "white", md: "blackAlpha.600" }}
             py={{ base: 8, md: 32 }}
             ref={excerptRef}
             px={{ base: 4, md: 0 }}
@@ -327,12 +324,17 @@ export default function Home() {
                 textStyle={"excerpt"}
                 textColor={{ base: "black", md: "white" }}
               >
-                &ldquo;He looked down and saw his arms and legs surrounded by a
-                jet-black aura. The aura expanded exponentially until it
-                retracted to the center of his abdomen and sent a shockwave all
-                around the Union Station area of D.C. The force of the shockwave
-                sent cars flying into buildings and flung people into poles only
-                for them to land on clumps of shimmering concrete.&rdquo;
+                &ldquo;A deep horn and screeching tires shook Daniel in his skin
+                as a large, metal missile on wheels hurtled toward them in slow
+                motion. He stretched out his arm as a reflex reaction and
+                cowered, waiting for his death. Seconds later, Daniel opened his
+                eyes to see the vehicle flying into a building. Windows
+                shattered from the impact. He looked down and saw his arms and
+                legs surrounded by an erratic black aura. The aura retracted to
+                Daniel&apos;s chest before releasing a shockwave around the
+                entire area. Its sheer force sent vehicles crashing into
+                properties and flung pedestrians into poles and walls for them
+                to land on clumps of shimmering concrete.&rdquo;
               </Text>
             </Flex>
           </Flex>
@@ -350,6 +352,7 @@ export default function Home() {
           width={"100%"}
           justify={"center"}
           align={"center"}
+          bgColor={"blackAlpha.100"}
           direction={"column"}
         >
           <Text textStyle={"h2"}>Content and Trigger Warnings</Text>
@@ -388,17 +391,6 @@ export default function Home() {
             </HStack>
             <HStack
               as={motion.div}
-              initial={{ opacity: 0, x: 100 }}
-              whileInView={{ opacity: 1, x: 0, transition: { duration: 1.0 } }}
-              viewport={{ once: true }}
-              justify={"center"}
-              align={"center"}
-            >
-              <Icon as={GiFireSilhouette} boxSize={5} />
-              <Text fontSize={18}>Harm to children</Text>
-            </HStack>
-            <HStack
-              as={motion.div}
               initial={{ opacity: 0, x: 50 }}
               whileInView={{ opacity: 1, x: 0, transition: { duration: 1.0 } }}
               viewport={{ once: true }}
@@ -410,42 +402,7 @@ export default function Home() {
             </HStack>
           </SimpleGrid>
         </Flex>
-        <Divider h={2} />
-
-        {/** Read The Prologue */}
-        <Flex
-          py={{ base: 8, md: 16 }}
-          width={"100%"}
-          justify={"center"}
-          align={"center"}
-          direction={"column"}
-          bgColor={"blackAlpha.100"}
-          px={{ base: 4 }}
-        >
-          <Text textStyle={"h2"}>The Pivot: Prologue</Text>
-          <ButtonGroup
-            gap={4}
-            flexDirection={{ base: "column", md: "row" }}
-            spacing={0}
-          >
-            <Button
-              as={motion.button}
-              whileHover={{
-                scale: 0.9,
-                transition: { duration: 0.1 },
-              }}
-              whileTap={{ scale: 0.8, borderRadius: "5%" }}
-              fontWeight={merriweather.style.fontWeight}
-              color={"white"}
-              size={{ base: "md", md: "sm" }}
-              bgColor={"black"}
-              _hover={{ bgColor: "gray.700" }}
-              onClick={() => router.push("/the-pivot/prologue")}
-            >
-              READ THE PROLOGUE
-            </Button>
-          </ButtonGroup>
-        </Flex>
+        {/* <Divider h={2} /> */}
 
         {/** Newletter Sign Up*/}
         <Flex

@@ -20,7 +20,7 @@ import MenuDrawer from "./modals/MenuDrawer";
  * @param param0 HeaderProps
  * @returns
  */
-export default function Header({...props}) {
+export default function Header({ ...props }) {
   const { isOpen, onOpen, onClose } = useDisclosure();
   return (
     <>
@@ -33,7 +33,12 @@ export default function Header({...props}) {
           mx="auto"
           color={props.textColor}
         >
-          <Text textStyle={"headerText"}>fred.asamoah.jr</Text>
+          <Link as={NextLink} passHref href={"/"}>
+            <TextWithUnderlineHoverComponent
+              text={"fred.asamoah.jr"}
+              underlineColor={props.textColor?.md ?? props.textColor}
+            />
+          </Link>
           <Spacer />
           <HStack spacing={8}>
             <Show above="md">
@@ -57,7 +62,11 @@ export default function Header({...props}) {
               </Link>
             </Show>
             <Hide above="md">
-              <HamburgerIcon _hover={{ cursor: 'pointer'}} boxSize={6} onClick={onOpen} />
+              <HamburgerIcon
+                _hover={{ cursor: "pointer" }}
+                boxSize={6}
+                onClick={onOpen}
+              />
             </Hide>
           </HStack>
         </Flex>
